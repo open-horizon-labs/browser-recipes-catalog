@@ -1,6 +1,8 @@
 # Tab Recipes community catalog
 
-This catalog contains JSON recipes for browser apps. Each recipe lists the steps for one task. The app’s adapter defines the site origin and the CSS selectors those steps use. After importing the catalog, a user can run a recipe by ID from a script or an LLM client. The extension executes it in the user’s open tab.
+Many browser apps have no Model Context Protocol (MCP) server for the task you need. You or your agent can work out the steps in the browser, but the next person faces the same questions. Which page do I open? Which control do I use? How do I check that it worked? With a computer-use tool, figuring that out can also tie up the active window and cursor.
+
+When you’ve tested a flow, share the steps as a JSON recipe and the selectors in the app’s adapter. For example, the Concur recipe opens Manage Expenses, checks the heading, and reads the first active report card. Someone else can import it and call `first-expense-report-summary` from a script or agent in their own signed-in session. They get the report summary without rediscovering the page or controls. The extension can run the recipe in a background tab while they use their browser. [Concur recipe](adapters/concur/recipes/first-expense-report-summary.json)
 
 ## Contributing
 
