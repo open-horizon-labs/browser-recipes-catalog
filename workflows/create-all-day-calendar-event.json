@@ -1,5 +1,6 @@
 {
   "id": "create-all-day-calendar-event",
+  "onboardingOrder": 4,
   "title": "Review and create one all-day Google Calendar event",
   "description": "Prepare the new-event editor, review and approve Save, then verify the event on the displayed week.",
   "tabs": {

@@ -3066,6 +3066,7 @@
     },
     {
       "id": "create-all-day-calendar-event",
+      "onboardingOrder": 4,
       "title": "Review and create one all-day Google Calendar event",
       "description": "Prepare the new-event editor, review and approve Save, then verify the event on the displayed week.",
       "tabs": {
@@ -3153,6 +3154,7 @@
     },
     {
       "id": "create-timed-calendar-event",
+      "onboardingOrder": 3,
       "title": "Review and create one timed Google Calendar event",
       "description": "Prepare the new-event editor, review and approve Save, then verify the event on the displayed week.",
       "tabs": {
@@ -3252,6 +3254,7 @@
     },
     {
       "id": "outlook-to-google-calendar",
+      "onboardingOrder": 1,
       "title": "Copy Outlook events to Google Calendar",
       "description": "Compare an Outlook week with Google Calendar, then import selected missing blocks.",
       "inputs": {
@@ -3399,6 +3402,7 @@
     },
     {
       "id": "review-draft-submission",
+      "onboardingOrder": 2,
       "title": "Review a draft expense report for submission",
       "description": "Read the open Concur report and hand it to a person to check receipts, alerts and the submission agreement.",
       "tabs": {

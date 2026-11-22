@@ -1,5 +1,6 @@
 {
   "id": "outlook-to-google-calendar",
+  "onboardingOrder": 1,
   "title": "Copy Outlook events to Google Calendar",
   "description": "Compare an Outlook week with Google Calendar, then import selected missing blocks.",
   "inputs": {

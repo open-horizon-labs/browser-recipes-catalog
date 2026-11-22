@@ -1,5 +1,6 @@
 {
   "id": "review-draft-submission",
+  "onboardingOrder": 2,
   "title": "Review a draft expense report for submission",
   "description": "Read the open Concur report and hand it to a person to check receipts, alerts and the submission agreement.",
   "tabs": {

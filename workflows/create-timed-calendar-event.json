@@ -1,5 +1,6 @@
 {
   "id": "create-timed-calendar-event",
+  "onboardingOrder": 3,
   "title": "Review and create one timed Google Calendar event",
   "description": "Prepare the new-event editor, review and approve Save, then verify the event on the displayed week.",
   "tabs": {
