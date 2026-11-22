@@ -3,6 +3,10 @@
   "title": "Outlook on the web",
   "origin": "https://outlook.cloud.microsoft",
   "targets": {
-    "first-message": "[aria-label=\"Message list\"] [role=option][aria-posinset=\"1\"]"
+    "first-message": "[aria-label=\"Message list\"] [role=option][aria-posinset=\"1\"]",
+    "calendar-range": "button[aria-label*=\"Jump to a specific date\"]",
+    "calendar-events": "[role=\"main\"] [data-calitemid] [role=\"button\"][aria-label]",
+    "calendar-filter": "button[aria-label=\"Filter applied\"]",
+    "calendar-account": "#owa-me-control-container button, #mectrl_main_trigger"
   }
 }

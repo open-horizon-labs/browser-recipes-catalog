@@ -10,6 +10,8 @@ In a signed-in BrowserOS Neo profile, we ran the extension’s `executeDom` func
 
 We recorded match counts and pass/fail results. These read-only checks covered the page operations. We tested the extension and native CLI together on a [local fixture](https://github.com/open-horizon-labs/browser-recipes/tree/main/integration/fixtures/workshop).
 
+## Concur expense workflow
+
 The Concur workflow port also replayed the report and allocation summaries,
 submission preview, saved lodging breakdown, and an unsaved taxi form in
 inactive signed-in tabs. The report showed Approved during the final check.
@@ -23,3 +25,7 @@ From the catalog root, run `node tests/concur.mjs` after building the adjacent
 Browser Recipes runtime and installing its `integration` dependencies. Use
 `CHROMIUM_PATH` for the browser executable or `BROWSER_RECIPES_RUNTIME` for a
 different runtime checkout.
+
+## Calendar recipes
+
+In the signed-in BrowserOS Neo work profile, we executed the current read operations against Outlook Calendar and Google Calendar in Week view. Both returned a range, account label and nonempty event rows. Outlook showed an active filter, and Google returned the checked calendar controls. The Google Import & export page also exposed the file input used by the staging recipe. Calendar checks read page data and changed the displayed week. No file was staged or imported.

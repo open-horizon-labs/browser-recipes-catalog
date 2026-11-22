@@ -1,0 +1,39 @@
+{
+  "id": "read-calendar-week",
+  "title": "Read the visible Outlook calendar week",
+  "steps": [
+    {
+      "op": "assert",
+      "target": "calendar-range"
+    },
+    {
+      "op": "read",
+      "target": "calendar-range",
+      "as": "range"
+    },
+    {
+      "op": "readList",
+      "target": "calendar-events",
+      "attributes": [
+        "aria-label"
+      ],
+      "as": "events"
+    },
+    {
+      "op": "readList",
+      "target": "calendar-filter",
+      "attributes": [
+        "aria-label"
+      ],
+      "as": "filters"
+    },
+    {
+      "op": "readList",
+      "target": "calendar-account",
+      "attributes": [
+        "aria-label"
+      ],
+      "as": "account"
+    }
+  ]
+}
