@@ -1,0 +1,17 @@
+{
+  "id": "gmail",
+  "title": "Gmail",
+  "origin": "https://mail.google.com",
+  "targets": {
+    "first-subject": "[role=main] tr.zA:nth-child(1 of tr.zA) span.bog"
+  },
+  "recipes": [
+    {
+      "id": "first-visible-subject",
+      "title": "Read the first subject in the current Gmail message list",
+      "steps": [
+        { "op": "read", "target": "first-subject", "as": "subject" }
+      ]
+    }
+  ]
+}

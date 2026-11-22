@@ -1,0 +1,41 @@
+{
+  "id": "workshop",
+  "title": "Local recipe workshop",
+  "origin": "http://127.0.0.1:8765",
+  "targets": {
+    "ticket": "h1",
+    "response": "#response",
+    "save": "button[type=submit]",
+    "status": "#status",
+    "saved": "#saved",
+    "dispatch": "#dispatch"
+  },
+  "documentPaths": ["/files/"],
+  "recipes": [
+    {
+      "id": "read-ticket", "title": "Open ticket 42 and read its title",
+      "steps": [
+        { "op": "navigate", "path": "/ticket.html" },
+        { "op": "read", "target": "ticket", "as": "title" }
+      ]
+    },
+    {
+      "id": "save-response", "title": "Save a response to ticket 42",
+      "inputs": { "message": { "type": "string", "required": true } },
+      "steps": [
+        { "op": "navigate", "path": "/ticket.html" },
+        { "op": "fill", "target": "response", "input": "message" },
+        { "op": "click", "target": "save" },
+        { "op": "assert", "target": "status", "text": "Saved" },
+        { "op": "read", "target": "saved", "as": "saved-response" }
+      ]
+    },
+    {
+      "id": "dispatch-note", "title": "Read the ticket attachment",
+      "steps": [
+        { "op": "navigate", "path": "/ticket.html" },
+        { "op": "readAttachment", "target": "dispatch", "as": "note", "allowedPathPrefix": "/files/" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "hacker-news",
+  "title": "Hacker News",
+  "origin": "https://news.ycombinator.com",
+  "targets": { "first-headline": "tr.athing:first-of-type .titleline > a:first-child" },
+  "recipes": [
+    {
+      "id": "front-page", "title": "Read the leading front-page headline",
+      "steps": [
+        { "op": "navigate", "path": "/news" },
+        { "op": "read", "target": "first-headline", "as": "headline" }
+      ]
+    },
+    {
+      "id": "newest", "title": "Read the newest headline",
+      "steps": [
+        { "op": "navigate", "path": "/newest" },
+        { "op": "read", "target": "first-headline", "as": "headline" }
+      ]
+    }
+  ]
+}

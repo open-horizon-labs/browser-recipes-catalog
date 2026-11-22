@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Ticket 42</title>
+<main><a href="/">All tickets</a><h1>Ticket 42</h1>
+<p>Read the dispatch note, then write a response.</p>
+<a id="dispatch" href="/files/dispatch.pdf">Download dispatch note</a>
+<form><label>Response <input id="response" required></label>
+<button type="submit">Save response</button></form>
+<p role="status" id="status">Open</p><output id="saved"></output></main>
+<script>
+const saved = document.querySelector('#saved');
+const status = document.querySelector('#status');
+const key = 'ticket-42-response';
+function render() {
+  const value = sessionStorage.getItem(key);
+  saved.textContent = value ?? '';
+  status.textContent = value === null ? 'Open' : 'Saved';
+}
+document.querySelector('form').addEventListener('submit', event => {
+  event.preventDefault();
+  sessionStorage.setItem(key, document.querySelector('#response').value);
+  render();
+});
+render();
+</script></html>
