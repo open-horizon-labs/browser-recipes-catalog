@@ -1,4 +1,4 @@
-# Tab Recipes community catalog
+# Browser Recipes Catalog
 
 Many browser apps have no Model Context Protocol (MCP) server for the task you need. You or your agent can work out the steps in the browser, but the next person faces the same questions. Which page do I open? Which control do I use? How do I check that it worked? With a computer-use tool, figuring that out can also tie up the active window and cursor.
 
@@ -15,17 +15,17 @@ Find the directory for the app’s origin after sign-in. [Browse adapters](adapt
 
 The Hacker News adapter already defines `first-headline` for the front page and newest submissions. To try it on Ask HN, navigate to `/ask`, read the same target, and check the result against the page.
 
-1. **Load your working catalog.** Install the extension and CLI. With the two repositories side by side, run the packer from the catalog root. In extension settings, load the resulting file, choose **Save catalog**, grant the app’s origin, and enable developer tools. Saving replaces your local adapter list, so include any private adapters you want to keep. [Runtime setup](https://github.com/open-horizon-labs/tab-recipes#first-run-on-linux)
+1. **Load your working catalog.** Install the extension and CLI. With the two repositories side by side, run the packer from the catalog root. In extension settings, load the resulting file, choose **Save catalog**, grant the app’s origin, and enable developer tools. Saving replaces your local adapter list, so include any private adapters you want to keep. [Runtime setup](https://github.com/open-horizon-labs/browser-recipes#first-run-on-linux)
 
    ```sh
-   node scripts/pack.mjs > /tmp/tab-recipes-catalog.json
+   node scripts/pack.mjs > /tmp/browser-recipes-catalog.json
    ```
 
-2. **Inspect a tab and try a draft.** Open Hacker News. From the catalog root, run `../tab-recipes/bridge/tab-recipes tabs`. Use the Hacker News tab ID wherever `123` appears below. The first command lists page controls and same-origin links. The second runs the draft.
+2. **Inspect a tab and try a draft.** Open Hacker News. From the catalog root, run `../browser-recipes/bridge/browser-recipes tabs`. Use the Hacker News tab ID wherever `123` appears below. The first command lists page controls and same-origin links. The second runs the draft.
 
    ```sh
-   ../tab-recipes/bridge/tab-recipes dev.inspect '{"tabId":123,"adapterId":"hacker-news"}'
-   ../tab-recipes/bridge/tab-recipes dev.test - <<'JSON'
+   ../browser-recipes/bridge/browser-recipes dev.inspect '{"tabId":123,"adapterId":"hacker-news"}'
+   ../browser-recipes/bridge/browser-recipes dev.test - <<'JSON'
    {
      "tabId": 123,
      "adapterId": "hacker-news",
@@ -45,15 +45,15 @@ The Hacker News adapter already defines `first-headline` for the front page and 
 3. **Test the installed recipe.** Compare `outputs.headline` with the leading title on the Ask page. Save the inner `recipe` object as `adapters/hacker-news/recipes/ask-headline.json`. Pack and save the catalog again. Turn developer tools off, bring another tab to the foreground, and run the recipe again.
 
    ```sh
-   ../tab-recipes/bridge/tab-recipes run '{"tabId":123,"adapterId":"hacker-news","recipeId":"ask-headline","inputs":{}}'
+   ../browser-recipes/bridge/browser-recipes run '{"tabId":123,"adapterId":"hacker-news","recipeId":"ask-headline","inputs":{}}'
    ```
 
-Test writes on disposable records and read back the saved value. For attachment downloads, declare the endpoint or directory in `documentPaths`. [Recipe format](https://github.com/open-horizon-labs/tab-recipes/blob/main/docs/recipes.md)
+Test writes on disposable records and read back the saved value. For attachment downloads, declare the endpoint or directory in `documentPaths`. [Recipe format](https://github.com/open-horizon-labs/browser-recipes/blob/main/docs/recipes.md)
 
 ## Open a pull request
 
 Include the recipe file, the app README, and any changed selectors. Say where and when you tested, what you expected, and what you observed. Mention conditions another tester will need, such as an English interface or a folder with at least one message. Use synthetic examples. Omit account details, page captures, and attachment contents. [Live test results](docs/live-apps.md)
 
-For a fix, identify the catalog revision and failed step. Rerun each recipe that uses the changed selector. If the failed recipe wrote data, check what the app saved before retrying. Propose new interpreter operations in the [runtime repository](https://github.com/open-horizon-labs/tab-recipes).
+For a fix, identify the catalog revision and failed step. Rerun each recipe that uses the changed selector. If the failed recipe wrote data, check what the app saved before retrying. Propose new interpreter operations in the [runtime repository](https://github.com/open-horizon-labs/browser-recipes).
 
-Compatible with Tab Recipes 0.1. [Apache-2.0 license](LICENSE)
+Compatible with Browser Recipes 0.1. [Apache-2.0 license](LICENSE)

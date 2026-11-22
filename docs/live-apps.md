@@ -8,4 +8,4 @@ In a signed-in BrowserOS Neo profile, we ran the extension’s `executeDom` func
 | [Outlook](../adapters/outlook/) | Inbox, scrolled to the top | The first message row. Outlook redirected from `outlook.office.com` to `outlook.cloud.microsoft`. |
 | [Concur US2](../adapters/concur/) | `/nui/expense` | The heading contained “Manage Expenses” and the first active report card had text. |
 
-We recorded match counts and pass/fail results. These read-only checks covered the page operations. We tested the extension and native CLI together on a [local fixture](https://github.com/open-horizon-labs/tab-recipes/tree/main/integration/fixtures/workshop).
+We recorded match counts and pass/fail results. These read-only checks covered the page operations. We tested the extension and native CLI together on a [local fixture](https://github.com/open-horizon-labs/browser-recipes/tree/main/integration/fixtures/workshop).
