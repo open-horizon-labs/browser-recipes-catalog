@@ -17,7 +17,7 @@ Share the recipe you tested and the selectors it uses. The next person can run t
 
 ## Install from the community catalog
 
-In Browser Recipes settings, choose **Browse community catalog**, select **Recipes**, **Adapters**, or **Workflows**, and search by app or task. Choose **Review install** to see what will be added or updated. A recipe brings its adapter. An adapter includes all its published recipes. A workflow brings the recipes it calls, including verification steps and alternate app hosts. Choose **Install changes**, then grant the sites you want to run.
+In Browser Recipes settings, choose **Browse community catalog**, select **Recipes**, **Adapters**, or **Workflows**, and search by app or task. Choose **Install** to add the item to your library, or **Update** for a newer definition. A recipe brings its adapter. An adapter includes all its published recipes. A workflow brings the recipes it calls, including verification steps and alternate app hosts. Grant access to the sites you want to run.
 
 ## Run a workflow
 
