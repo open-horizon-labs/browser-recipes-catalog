@@ -6,6 +6,8 @@ When you’ve tested a flow, share the steps as a JSON recipe and the selectors 
 
 ## Contributing
 
+In an agent session opened in this checkout, use `$browser-recipes-author` to add an adapter or recipe. For example, “Use `$browser-recipes-author` to add a recipe that reads the title of the current issue in our tracker.” [Contributor skill](.agents/skills/browser-recipes-author/SKILL.md)
+
 Find the directory for the app’s origin after sign-in. [Browse adapters](adapters)
 
 - **Existing app.** Add a file named `recipes/<recipe-id>.json` and document the starting page, inputs, and result in the app’s README. Check `adapter.json` for selectors you can reuse.
