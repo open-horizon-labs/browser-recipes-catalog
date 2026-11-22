@@ -37,3 +37,5 @@ validation.
 Choose a dedicated destination calendar for copied availability. Imports are a snapshot. Changes and cancellations in Outlook require another comparison.
 
 **Origin** `https://calendar.google.com` · [Shared targets](adapter.json) · [Google’s import instructions](https://support.google.com/calendar/answer/37118)
+
+Supply both `first-day` and `last-day` to `read-calendar-week` for an inclusive range, for example `{"first-day":"2026-11-08","last-day":"2026-11-14"}`. Omit both to read the visible week. Start in English-language Week view. The recipe pages through the calendar in the same tab and leaves it on the final week. Filters and calendar visibility still apply.

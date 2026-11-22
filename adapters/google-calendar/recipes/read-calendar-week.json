@@ -39,5 +39,14 @@
       ],
       "as": "calendars"
     }
-  ]
+  ],
+  "calendarRange": true,
+  "inputs": {
+    "first-day": {
+      "type": "string"
+    },
+    "last-day": {
+      "type": "string"
+    }
+  }
 }
