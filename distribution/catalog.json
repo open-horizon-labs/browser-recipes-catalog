@@ -2546,7 +2546,9 @@
             "last-day": {
               "type": "string"
             }
-          }
+          },
+          "entryPath": "/calendar/r/week",
+          "accountPrefix": "/calendar/u/"
         },
         {
           "id": "save-all-day-event",
@@ -2952,7 +2954,8 @@
             "last-day": {
               "type": "string"
             }
-          }
+          },
+          "entryPath": "/calendar/view/week"
         }
       ]
     },
@@ -3044,7 +3047,8 @@
             "last-day": {
               "type": "string"
             }
-          }
+          },
+          "entryPath": "/calendar/view/week"
         }
       ]
     }

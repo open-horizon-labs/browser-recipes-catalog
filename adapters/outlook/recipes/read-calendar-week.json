@@ -47,5 +47,6 @@
     "last-day": {
       "type": "string"
     }
-  }
+  },
+  "entryPath": "/calendar/view/week"
 }

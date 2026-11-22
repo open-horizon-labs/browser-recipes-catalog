@@ -49,5 +49,7 @@
     "last-day": {
       "type": "string"
     }
-  }
+  },
+  "entryPath": "/calendar/r/week",
+  "accountPrefix": "/calendar/u/"
 }
