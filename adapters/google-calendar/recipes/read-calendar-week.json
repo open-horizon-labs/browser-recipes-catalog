@@ -1,6 +1,8 @@
 {
   "id": "read-calendar-week",
   "title": "Read the visible Google Calendar week",
+  "kind": "list",
+  "effect": "read",
   "steps": [
     {
       "op": "assert",

@@ -1,6 +1,8 @@
 {
   "id": "save-timed-event",
   "title": "Press Save on the reviewed new timed event",
+  "kind": "create",
+  "effect": "write",
   "inputs": {
     "destination-account": {
       "type": "string",

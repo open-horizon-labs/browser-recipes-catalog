@@ -1,6 +1,8 @@
 {
   "id": "prepare-all-day-event",
   "title": "Prepare and check a new all-day event",
+  "kind": "prepare",
+  "effect": "read",
   "inputs": {
     "destination-account": {
       "type": "string",

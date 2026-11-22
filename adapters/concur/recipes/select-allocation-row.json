@@ -1,6 +1,8 @@
 {
   "id": "select-allocation-row",
   "title": "Select a reviewed custom split by its complete row text",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

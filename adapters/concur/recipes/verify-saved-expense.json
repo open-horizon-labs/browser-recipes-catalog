@@ -1,6 +1,8 @@
 {
   "id": "verify-saved-expense",
   "title": "Verify the expected expense now appears in the report",
+  "kind": "get",
+  "effect": "read",
   "inputs": {
     "report-number": {
       "type": "string",

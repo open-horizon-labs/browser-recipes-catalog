@@ -1,6 +1,8 @@
 {
   "id": "newest",
   "title": "Read the newest headline",
+  "kind": "get",
+  "effect": "read",
   "steps": [
     {
       "op": "navigate",

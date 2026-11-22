@@ -1,6 +1,8 @@
 {
   "id": "read-lodging-itemization-summary",
   "title": "Read saved hotel itemizations without opening an editor",
+  "kind": "get",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

@@ -1,6 +1,8 @@
 {
   "id": "open-available-expenses",
   "title": "Open the available-expenses dialog and read its contents",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

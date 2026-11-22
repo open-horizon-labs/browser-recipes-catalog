@@ -1,6 +1,8 @@
 {
   "id": "set-allocation-percent",
   "title": "Set a reviewed allocation row percentage",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

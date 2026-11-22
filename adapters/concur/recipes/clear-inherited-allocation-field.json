@@ -1,6 +1,8 @@
 {
   "id": "clear-inherited-allocation-field",
   "title": "Clear the reviewed conflicting allocation field",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

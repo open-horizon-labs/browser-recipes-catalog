@@ -1,0 +1,37 @@
+{
+  "id": "review-draft-submission",
+  "title": "Review a draft expense report for submission",
+  "description": "Read the open Concur report and hand it to a person to check receipts, alerts and the submission agreement.",
+  "tabs": {
+    "expense": {
+      "adapterId": "concur",
+      "label": "Concur expense report"
+    }
+  },
+  "steps": [
+    {
+      "id": "read-draft",
+      "label": "Read the open report and visible alerts",
+      "op": "recipe",
+      "tab": "expense",
+      "recipeId": "read-expense-report",
+      "effect": "read"
+    },
+    {
+      "id": "review-submission",
+      "op": "handoff",
+      "tab": "expense",
+      "label": "Review the report and submit it in Concur if approved",
+      "tags": [
+        "draft-submission"
+      ],
+      "description": "Check the report number, receipts, amounts and alerts. Review any agreement in Concur before submitting. Resume after checking the outcome.",
+      "inputs": {
+        "report-number": "read-draft.report-number",
+        "title": "read-draft.title",
+        "expenses": "read-draft.expenses",
+        "alerts": "read-draft.expense-alerts"
+      }
+    }
+  ]
+}

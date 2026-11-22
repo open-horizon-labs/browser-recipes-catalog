@@ -1,6 +1,8 @@
 {
   "id": "save-all-day-event",
   "title": "Press Save on the reviewed new all-day event",
+  "kind": "create",
+  "effect": "write",
   "inputs": {
     "destination-account": {
       "type": "string",

@@ -1,6 +1,8 @@
 {
   "id": "dismiss-save-correction",
   "title": "Return to the report from the correction prompt",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

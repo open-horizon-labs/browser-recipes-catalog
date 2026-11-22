@@ -1,6 +1,8 @@
 {
   "id": "choose-fee-type",
   "title": "Select the exact Other expense category",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

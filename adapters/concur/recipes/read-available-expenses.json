@@ -1,6 +1,8 @@
 {
   "id": "read-available-expenses",
   "title": "Read the open available-expenses dialog",
+  "kind": "list",
+  "effect": "read",
   "inputs": {
     "report-number": {
       "type": "string",

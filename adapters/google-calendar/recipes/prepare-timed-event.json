@@ -1,6 +1,8 @@
 {
   "id": "prepare-timed-event",
   "title": "Prepare and check a new timed event",
+  "kind": "prepare",
+  "effect": "read",
   "inputs": {
     "destination-account": {
       "type": "string",

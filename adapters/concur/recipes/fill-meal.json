@@ -1,6 +1,8 @@
 {
   "id": "fill-meal",
   "title": "Fill and check an unsaved meal form",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

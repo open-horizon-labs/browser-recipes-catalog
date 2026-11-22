@@ -1,6 +1,8 @@
 {
   "id": "read-add-expense-menu",
   "title": "Read the choices under Add Expense and close the menu",
+  "kind": "list",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

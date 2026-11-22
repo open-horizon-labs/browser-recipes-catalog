@@ -1,6 +1,8 @@
 {
   "id": "dismiss-report-dialog",
   "title": "Close a reviewed Concur dialog",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

@@ -1,6 +1,8 @@
 {
   "id": "select-available-expense",
   "title": "Stage one exactly identified available-expense row",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

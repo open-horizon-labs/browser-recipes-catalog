@@ -1,6 +1,8 @@
 {
   "id": "remove-selected-allocation",
   "title": "Remove the selected split in the allocation editor",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

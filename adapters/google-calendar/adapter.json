@@ -2,6 +2,12 @@
   "id": "google-calendar",
   "title": "Google Calendar",
   "origin": "https://calendar.google.com",
+  "auth": {
+    "entryPath": "/calendar/",
+    "origins": [
+      "https://accounts.google.com"
+    ]
+  },
   "targets": {
     "calendar-range": "[role=\"main\"] h1[aria-label]",
     "calendar-events": "[role=\"main\"] [data-eventchip][data-eventid]:not([data-is-picker]):not([data-eventid^=\"_WL_\"])",

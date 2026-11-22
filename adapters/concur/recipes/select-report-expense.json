@@ -1,6 +1,8 @@
 {
   "id": "select-report-expense",
   "title": "Select one expense by its exact checkbox label",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

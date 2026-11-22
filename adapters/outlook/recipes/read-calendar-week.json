@@ -1,6 +1,8 @@
 {
   "id": "read-calendar-week",
   "title": "Read the visible Outlook calendar week",
+  "kind": "list",
+  "effect": "read",
   "steps": [
     {
       "op": "assert",

@@ -1,6 +1,8 @@
 {
   "id": "stage-calendar-import",
   "title": "Select an iCalendar file for import",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "calendar-file": {
       "type": "attachment",

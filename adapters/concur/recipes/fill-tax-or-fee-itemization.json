@@ -1,6 +1,8 @@
 {
   "id": "fill-tax-or-fee-itemization",
   "title": "Fill and check a tax or fee itemization",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

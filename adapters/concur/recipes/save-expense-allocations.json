@@ -1,6 +1,8 @@
 {
   "id": "save-expense-allocations",
   "title": "Save the staged and reviewed expense split",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

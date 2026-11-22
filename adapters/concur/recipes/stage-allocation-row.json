@@ -1,6 +1,8 @@
 {
   "id": "stage-allocation-row",
   "title": "Stage the reviewed split in the allocation editor",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

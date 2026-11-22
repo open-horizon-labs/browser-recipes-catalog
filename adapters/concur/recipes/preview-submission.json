@@ -1,6 +1,8 @@
 {
   "id": "preview-submission",
   "title": "Read the open report status, total and expense grid",
+  "kind": "get",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

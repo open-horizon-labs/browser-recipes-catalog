@@ -1,6 +1,8 @@
 {
   "id": "attach-expense-receipt",
   "title": "Stage a receipt in the open expense",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

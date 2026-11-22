@@ -1,6 +1,8 @@
 {
   "id": "apply-calendar-import",
   "title": "Import approved calendar blocks",
+  "kind": "create",
+  "effect": "write",
   "inputs": {
     "calendar-file": {
       "type": "attachment",

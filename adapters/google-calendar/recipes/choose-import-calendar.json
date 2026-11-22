@@ -1,6 +1,8 @@
 {
   "id": "choose-import-calendar",
   "title": "Choose the import calendar by name",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "destination-account": {
       "type": "string",

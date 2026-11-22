@@ -1,6 +1,8 @@
 {
   "id": "choose-meal-type",
   "title": "Select an exact meal type on the expense form",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

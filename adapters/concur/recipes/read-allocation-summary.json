@@ -1,6 +1,8 @@
 {
   "id": "read-allocation-summary",
   "title": "Read Allocation Summary and close its dialog",
+  "kind": "get",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

@@ -1,6 +1,8 @@
 {
   "id": "read-expense-report",
   "title": "Read the open expense report, receipts and visible alerts",
+  "kind": "list",
+  "effect": "read",
   "steps": [
     {
       "op": "read",

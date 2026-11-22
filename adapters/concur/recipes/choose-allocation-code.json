@@ -1,6 +1,8 @@
 {
   "id": "choose-allocation-code",
   "title": "Search an allocation picker and select the exact displayed result",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

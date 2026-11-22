@@ -1,6 +1,8 @@
 {
   "id": "open-itemization-form",
   "title": "Open the itemization editor for an exact expense type",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

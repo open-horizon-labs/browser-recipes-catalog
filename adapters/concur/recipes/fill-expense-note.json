@@ -1,6 +1,8 @@
 {
   "id": "fill-expense-note",
   "title": "Fill and check the expense comment",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

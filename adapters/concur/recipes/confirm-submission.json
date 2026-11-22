@@ -1,6 +1,8 @@
 {
   "id": "confirm-submission",
   "title": "Accept the reviewed agreement and submit the report",
+  "kind": "submit",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

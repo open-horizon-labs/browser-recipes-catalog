@@ -1,6 +1,8 @@
 {
   "id": "continue-submission-review",
   "title": "Continue from the exact reviewed report totals dialog",
+  "kind": "submit",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

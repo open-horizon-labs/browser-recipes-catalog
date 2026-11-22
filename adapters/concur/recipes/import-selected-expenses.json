@@ -1,6 +1,8 @@
 {
   "id": "import-selected-expenses",
   "title": "Move the single reviewed available expense into the report",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

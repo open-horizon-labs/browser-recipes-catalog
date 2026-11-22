@@ -1,6 +1,8 @@
 {
   "id": "save-expense",
   "title": "Save the reviewed expense on this draft",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

@@ -1,6 +1,8 @@
 {
   "id": "read-report-header",
   "title": "Read status, total and reimbursement from the report header",
+  "kind": "get",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

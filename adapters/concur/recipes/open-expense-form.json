@@ -1,6 +1,8 @@
 {
   "id": "open-expense-form",
   "title": "Open a manual expense form by its exact type",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

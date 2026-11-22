@@ -1,6 +1,8 @@
 {
   "id": "choose-city",
   "title": "Search for and select a city on the open expense form",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

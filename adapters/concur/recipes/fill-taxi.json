@@ -1,6 +1,8 @@
 {
   "id": "fill-taxi",
   "title": "Fill and check an unsaved taxi form",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

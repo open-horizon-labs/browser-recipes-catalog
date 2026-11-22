@@ -1,6 +1,8 @@
 {
   "id": "fill-room-rate",
   "title": "Fill a nightly lodging rate in the room worksheet",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

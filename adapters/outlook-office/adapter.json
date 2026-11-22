@@ -2,6 +2,12 @@
   "id": "outlook-office",
   "title": "Outlook on the web (Office host)",
   "origin": "https://outlook.office.com",
+  "auth": {
+    "entryPath": "/mail/",
+    "origins": [
+      "https://login.microsoftonline.com"
+    ]
+  },
   "targets": {
     "first-message": "[aria-label=\"Message list\"] [role=option][aria-posinset=\"1\"]",
     "calendar-range": "button[aria-label*=\"Jump to a specific date\"]",

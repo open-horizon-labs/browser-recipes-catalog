@@ -1,6 +1,8 @@
 {
   "id": "first-visible-subject",
   "title": "Read the first subject in the current Gmail message list",
+  "kind": "get",
+  "effect": "read",
   "steps": [
     {
       "op": "read",

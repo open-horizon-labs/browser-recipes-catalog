@@ -1,6 +1,8 @@
 {
   "id": "start-submission",
   "title": "Start authorized submission for the verified draft",
+  "kind": "submit",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

@@ -1,6 +1,8 @@
 {
   "id": "open-expense-allocations",
   "title": "Open allocations for the single selected expense",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

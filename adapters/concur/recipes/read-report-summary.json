@@ -1,6 +1,8 @@
 {
   "id": "read-report-summary",
   "title": "Read Report Summary and close its dialog",
+  "kind": "get",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

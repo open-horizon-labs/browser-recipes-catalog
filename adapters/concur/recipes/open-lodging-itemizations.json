@@ -1,6 +1,8 @@
 {
   "id": "open-lodging-itemizations",
   "title": "Open the selected lodging expense and read its itemizations",
+  "kind": "update",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",

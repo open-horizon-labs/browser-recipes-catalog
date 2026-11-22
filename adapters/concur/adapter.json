@@ -2,6 +2,13 @@
   "id": "concur",
   "title": "SAP Concur Expense (US2)",
   "origin": "https://us2.concursolutions.com",
+  "auth": {
+    "entryPath": "/nui/expense",
+    "paths": [
+      "/nui/signin",
+      "/nui/signin/"
+    ]
+  },
   "targets": {
     "manage-expenses": "[role=main] h1.sapcnqr-toolbar__title",
     "first-report": "section.active-reports .report-tiles-container > li.report-tile:nth-child(1 of li.report-tile) > a.sapcnqr-grid-list-item__link",

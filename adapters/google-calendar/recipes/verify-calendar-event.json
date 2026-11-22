@@ -1,6 +1,8 @@
 {
   "id": "verify-calendar-event",
   "title": "Verify one exact event label in the visible week",
+  "kind": "list",
+  "effect": "read",
   "inputs": {
     "destination-account": {
       "type": "string",

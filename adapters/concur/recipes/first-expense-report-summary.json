@@ -1,6 +1,8 @@
 {
   "id": "first-expense-report-summary",
   "title": "Read the first active report card from Manage Expenses",
+  "kind": "get",
+  "effect": "read",
   "steps": [
     {
       "op": "navigate",

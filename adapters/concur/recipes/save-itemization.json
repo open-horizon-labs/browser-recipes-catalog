@@ -1,6 +1,8 @@
 {
   "id": "save-itemization",
   "title": "Save the reviewed hotel itemization on this draft",
+  "kind": "create",
+  "effect": "write",
   "inputs": {
     "report-number": {
       "type": "string",
