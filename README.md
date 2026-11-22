@@ -4,7 +4,16 @@ This is the community repository for the **Browser Recipes** extension. Each ada
 
 Many browser apps have no Model Context Protocol (MCP) server for the task you need. You or your agent can work out the steps in the browser, but the next person faces the same questions. Which page do I open? Which control do I use? How do I check that it worked? With a computer-use tool, figuring that out can also tie up the active window and cursor.
 
-When you’ve tested a flow, share the steps as a JSON recipe and the selectors in the app’s adapter. For example, the Concur recipe opens Manage Expenses, checks the heading, and reads the first active report card. Someone else can import it and call `first-expense-report-summary` from a script or agent in their own signed-in session. They get the report summary without rediscovering the page or controls. The extension can run the recipe in a background tab while they use their browser. [Concur recipe](adapters/concur/recipes/first-expense-report-summary.json)
+Share the recipe you tested and the selectors it uses. The next person can run the same steps in their own signed-in session. When an app changes, contributors can update a shared selector in its adapter and test the recipes that use it.
+
+## Features in the catalog
+
+| Task | What you can install |
+| --- | --- |
+| Compare two calendars | Read an Outlook date range, compare it with Google Calendar, and preview missing time blocks. Choose which blocks to import. [Outlook to Google Calendar workflow](workflows/outlook-to-google-calendar.json) |
+| Create a calendar event | Prepare a timed or all-day Google Calendar event, review it, and verify the saved event. [Timed event](workflows/create-timed-calendar-event.json) · [All-day event](workflows/create-all-day-calendar-event.json) |
+| Work on a Concur expense report | Read the expense rows and report total, attach a receipt, or preview submission for a US2 report. Each task has its own recipe. [Concur recipes](adapters/concur/) |
+| Check a mailbox | Read the first visible Gmail subject without opening the conversation, or get a summary of the first listed Outlook message. [Gmail recipe](adapters/gmail/recipes/first-visible-subject.json) · [Outlook recipe](adapters/outlook/recipes/first-message-summary.json) |
 
 ## Install from the community catalog
 
