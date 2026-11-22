@@ -1,0 +1,15 @@
+{
+  "id": "front-page",
+  "title": "Read the leading front-page headline",
+  "steps": [
+    {
+      "op": "navigate",
+      "path": "/news"
+    },
+    {
+      "op": "read",
+      "target": "first-headline",
+      "as": "headline"
+    }
+  ]
+}

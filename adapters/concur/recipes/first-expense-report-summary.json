@@ -1,0 +1,20 @@
+{
+  "id": "first-expense-report-summary",
+  "title": "Read the first active report card from Manage Expenses",
+  "steps": [
+    {
+      "op": "navigate",
+      "path": "/nui/expense"
+    },
+    {
+      "op": "assert",
+      "target": "manage-expenses",
+      "text": "Manage Expenses"
+    },
+    {
+      "op": "read",
+      "target": "first-report",
+      "as": "summary"
+    }
+  ]
+}

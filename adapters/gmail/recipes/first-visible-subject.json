@@ -1,0 +1,11 @@
+{
+  "id": "first-visible-subject",
+  "title": "Read the first subject in the current Gmail message list",
+  "steps": [
+    {
+      "op": "read",
+      "target": "first-subject",
+      "as": "subject"
+    }
+  ]
+}

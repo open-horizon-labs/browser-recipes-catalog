@@ -1,0 +1,11 @@
+{
+  "id": "first-message-summary",
+  "title": "Read the first message row in the current Outlook list",
+  "steps": [
+    {
+      "op": "read",
+      "target": "first-message",
+      "as": "summary"
+    }
+  ]
+}

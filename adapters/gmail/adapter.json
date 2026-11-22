@@ -1,0 +1,8 @@
+{
+  "id": "gmail",
+  "title": "Gmail",
+  "origin": "https://mail.google.com",
+  "targets": {
+    "first-subject": "[role=main] tr.zA:nth-child(1 of tr.zA) span.bog"
+  }
+}

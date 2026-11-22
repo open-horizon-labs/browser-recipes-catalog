@@ -1,0 +1,8 @@
+{
+  "id": "outlook",
+  "title": "Outlook on the web",
+  "origin": "https://outlook.cloud.microsoft",
+  "targets": {
+    "first-message": "[aria-label=\"Message list\"] [role=option][aria-posinset=\"1\"]"
+  }
+}

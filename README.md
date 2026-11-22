@@ -4,12 +4,12 @@ If you know how to do a task in a browser app, you can teach it to someone else�
 
 ## Contributing
 
-Start with one task you already do. “Read the first active expense report in Concur” gives you a starting page, a record to find, and a result to check. The Concur recipe opens Manage Expenses, checks the heading, and reads the first report card into an output called `summary`. You can inspect the whole contribution in one file. [Concur adapter](adapters/concur.json)
+Start with one task you already do. “Read the first active expense report in Concur” gives you a starting page, a record to find, and a result to check. The Concur recipe opens Manage Expenses, checks the heading, and reads the first report card into an output called `summary`. [Concur use case and recipe](adapters/concur/)
 
 Look in the [adapters directory](adapters) for the exact origin you use, including the host you land on after signing in.
 
-- **The app is already here.** Add a recipe to its `recipes` array. Reuse a named target when it identifies the control you need. On Hacker News, the front page and newest submissions share a layout, so both recipes read `first-headline`. If the markup changes, one selector fixes both. [Hacker News adapter](adapters/hacker-news.json)
-- **You’re bringing a new app or origin.** Create `adapters/<app-id>.json` with an ID, a title, the exact origin and an empty `recipes` array. That’s enough to import the adapter and start discovery. Add entries to `targets` as you identify controls. The Gmail adapter implements its first recipe with one target and one read. [Gmail adapter](adapters/gmail.json)
+- **The app is already here.** Add `recipes/<recipe-id>.json` under the app’s directory and describe the use case in its README. Reuse a named target when it identifies the control you need. On Hacker News, the front page and newest submissions share a layout, so both recipes read `first-headline`. If the markup changes, one selector fixes both. [Hacker News adapter](adapters/hacker-news/)
+- **You’re bringing a new app or origin.** Create `adapters/<app-id>/` with a use-case `README.md`, a shared `adapter.json` containing the ID, title and exact origin, and a `recipes/` directory. You can pack the adapter with that directory empty to start discovery. Keep shared targets and document paths in `adapter.json`. The packer assembles the recipe files into the array the extension imports. The Gmail adapter implements its first recipe with one target and one read. [Gmail adapter](adapters/gmail/)
 
 ## Try a contribution in your browser
 
@@ -42,7 +42,7 @@ Suppose you want the leading headline on Ask HN. The existing Hacker News adapte
    JSON
    ```
 
-3. **Replay what you plan to share.** Compare `outputs.headline` with the leading title on the Ask page. Copy the inner `recipe` object into the adapter’s `recipes` array. Pack and save the catalog again. Turn developer tools off, bring another tab to the foreground, and call the installed recipe as a script would.
+3. **Replay what you plan to share.** Compare `outputs.headline` with the leading title on the Ask page. Save the inner `recipe` object as `adapters/hacker-news/recipes/ask-headline.json`. Pack and save the catalog again. Turn developer tools off, bring another tab to the foreground, and call the installed recipe as a script would.
 
    ```sh
    ../tab-recipes/bridge/tab-recipes run '{"tabId":123,"adapterId":"hacker-news","recipeId":"ask-headline","inputs":{}}'
@@ -52,7 +52,7 @@ For a recipe that writes data, test on a disposable record. Read back the saved 
 
 ## Open a pull request
 
-Commit the adapter JSON. In the PR, tell the reviewer which task it handles, where to start, what inputs it accepts, what it changes, and how to recognize success. Include the test date and any layout, locale, or account state that mattered. A reviewer with an empty inbox should know whether an empty result or a missing-target error is expected. Use synthetic values for examples and keep account data, private page captures, and attachment contents out of the PR. [Live checks for Gmail, Outlook, and Concur](docs/live-apps.md)
+Commit the recipe, its use-case documentation, and any changes to shared adapter settings. In the PR, tell the reviewer which task it handles, where to start, what inputs it accepts, what it changes, and how to recognize success. Include the test date and any layout, locale, or account state that mattered. A reviewer with an empty inbox should know whether an empty result or a missing-target error is expected. Use synthetic values for examples and keep account data, private page captures, and attachment contents out of the PR. [Live checks for Gmail, Outlook, and Concur](docs/live-apps.md)
 
 A repair is a contribution too. If an existing recipe fails, keep the installed catalog revision and the error’s step number, operation, and target name. Inspect the control on the changed page, patch the adapter, and replay each recipe that uses that target. If a write failed partway through, check what the app saved before retrying. Changes that require a new interpreter operation belong in the [runtime repository](https://github.com/open-horizon-labs/tab-recipes).
 

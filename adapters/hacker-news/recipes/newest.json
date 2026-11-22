@@ -1,0 +1,15 @@
+{
+  "id": "newest",
+  "title": "Read the newest headline",
+  "steps": [
+    {
+      "op": "navigate",
+      "path": "/newest"
+    },
+    {
+      "op": "read",
+      "target": "first-headline",
+      "as": "headline"
+    }
+  ]
+}
