@@ -1,0 +1,13 @@
+{
+  "id": "google-calendar",
+  "title": "Google Calendar",
+  "origin": "https://calendar.google.com",
+  "targets": {
+    "calendar-range": "[role=\"main\"] h1[aria-label]",
+    "calendar-events": "[role=\"main\"] [data-eventchip][data-eventid]:not([data-is-picker]):not([data-eventid^=\"_WL_\"])",
+    "calendar-account": "header a[role=\"button\"][aria-label^=\"Google Account:\"]",
+    "import-button": "button[jsname=\"N8B8lb\"]",
+    "import-file": "input[type=\"file\"][name=\"filename\"]",
+    "calendar-controls": "input[type=\"checkbox\"][aria-label]"
+  }
+}

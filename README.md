@@ -4,6 +4,12 @@ Many browser apps have no Model Context Protocol (MCP) server for the task you n
 
 When you’ve tested a flow, share the steps as a JSON recipe and the selectors in the app’s adapter. For example, the Concur recipe opens Manage Expenses, checks the heading, and reads the first active report card. Someone else can import it and call `first-expense-report-summary` from a script or agent in their own signed-in session. They get the report summary without rediscovering the page or controls. The extension can run the recipe in a background tab while they use their browser. [Concur recipe](adapters/concur/recipes/first-expense-report-summary.json)
 
+## Copy Outlook availability to Google Calendar
+
+With both accounts signed in to tabs in the same browser profile, open the intended week in both apps. Review Outlook’s filters and select only the target Google calendar before reading. The two `read-calendar-week` recipes collect visible events, displayed dates, and account labels. In Browser Recipes’ **Calendar sync** workflow, review the normalized dates and time zones, then review matches, proposed additions, and conflicts. The import uses private **Busy** blocks by default. You can choose to include event titles.
+
+On the selected Google account’s **Import & export** page, `stage-calendar-import` sets the file input. Confirm the destination in **Add to calendar**, then click **Import** yourself and recheck the week. The recipes do not edit or delete existing events. [Calendar sync walkthrough](https://github.com/open-horizon-labs/browser-recipes/blob/main/docs/calendar-sync.md) · [Outlook recipes](adapters/outlook/) · [Google Calendar recipes](adapters/google-calendar/)
+
 ## Contributing
 
 In an agent session opened in this checkout, use `$browser-recipes-author` to add an adapter or recipe. For example, “Use `$browser-recipes-author` to add a recipe that reads the title of the current issue in our tracker.” [Contributor skill](.agents/skills/browser-recipes-author/SKILL.md)

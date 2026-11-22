@@ -1,0 +1,21 @@
+{
+  "id": "stage-calendar-import",
+  "title": "Select an iCalendar file for import",
+  "inputs": {
+    "calendar-file": {
+      "type": "attachment",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "import-button"
+    },
+    {
+      "op": "attach",
+      "target": "import-file",
+      "input": "calendar-file"
+    }
+  ]
+}

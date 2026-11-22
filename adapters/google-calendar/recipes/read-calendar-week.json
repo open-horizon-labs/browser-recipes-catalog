@@ -1,0 +1,41 @@
+{
+  "id": "read-calendar-week",
+  "title": "Read the visible Google Calendar week",
+  "steps": [
+    {
+      "op": "assert",
+      "target": "calendar-range"
+    },
+    {
+      "op": "read",
+      "target": "calendar-range",
+      "as": "range"
+    },
+    {
+      "op": "readList",
+      "target": "calendar-events",
+      "attributes": [
+        "aria-label",
+        "data-eventid"
+      ],
+      "as": "events"
+    },
+    {
+      "op": "readList",
+      "target": "calendar-account",
+      "attributes": [
+        "aria-label"
+      ],
+      "as": "account"
+    },
+    {
+      "op": "readList",
+      "target": "calendar-controls",
+      "attributes": [
+        "aria-label",
+        "checked"
+      ],
+      "as": "calendars"
+    }
+  ]
+}
