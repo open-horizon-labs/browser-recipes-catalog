@@ -1,0 +1,47 @@
+{
+  "id": "preview-submission",
+  "title": "Read the open report status, total and expense grid",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "report-number"
+    },
+    {
+      "op": "readValue",
+      "target": "approval-status",
+      "as": "status"
+    },
+    {
+      "op": "readValue",
+      "target": "report-total",
+      "as": "total"
+    },
+    {
+      "op": "click",
+      "target": "report-header-dismiss"
+    },
+    {
+      "op": "read",
+      "target": "report-title",
+      "as": "title"
+    },
+    {
+      "op": "read",
+      "target": "expense-grid",
+      "as": "expenses"
+    }
+  ]
+}

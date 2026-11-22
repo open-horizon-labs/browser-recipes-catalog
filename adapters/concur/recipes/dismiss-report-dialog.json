@@ -1,0 +1,37 @@
+{
+  "id": "dismiss-report-dialog",
+  "title": "Close a reviewed Concur dialog",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "dialog-heading": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "modal-heading",
+      "match": {
+        "input": "dialog-heading"
+      }
+    },
+    {
+      "op": "click",
+      "target": "dialog-button",
+      "match": {
+        "text": "Close"
+      }
+    }
+  ]
+}

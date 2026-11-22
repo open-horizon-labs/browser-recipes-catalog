@@ -1,0 +1,103 @@
+{
+  "id": "fill-taxi",
+  "title": "Fill and check an unsaved taxi form",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "from": {
+      "type": "string",
+      "required": true
+    },
+    "to": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "string",
+      "required": true
+    },
+    "purpose": {
+      "type": "string",
+      "required": true
+    },
+    "merchant": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "fill",
+      "target": "ride-from",
+      "input": "from"
+    },
+    {
+      "op": "assertValue",
+      "target": "ride-from",
+      "input": "from"
+    },
+    {
+      "op": "fill",
+      "target": "ride-to",
+      "input": "to"
+    },
+    {
+      "op": "assertValue",
+      "target": "ride-to",
+      "input": "to"
+    },
+    {
+      "op": "fill",
+      "target": "transaction-date",
+      "input": "date"
+    },
+    {
+      "op": "assertValue",
+      "target": "transaction-date",
+      "input": "date"
+    },
+    {
+      "op": "fill",
+      "target": "business-purpose",
+      "input": "purpose"
+    },
+    {
+      "op": "assertValue",
+      "target": "business-purpose",
+      "input": "purpose"
+    },
+    {
+      "op": "fill",
+      "target": "expense-vendor",
+      "input": "merchant"
+    },
+    {
+      "op": "assertValue",
+      "target": "expense-vendor",
+      "input": "merchant"
+    },
+    {
+      "op": "fill",
+      "target": "expense-amount",
+      "input": "amount"
+    },
+    {
+      "op": "assertValue",
+      "target": "expense-amount",
+      "input": "amount"
+    }
+  ]
+}

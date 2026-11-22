@@ -1,0 +1,42 @@
+{
+  "id": "read-report-header",
+  "title": "Read status, total and reimbursement from the report header",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "report-number"
+    },
+    {
+      "op": "readValue",
+      "target": "approval-status",
+      "as": "status"
+    },
+    {
+      "op": "readValue",
+      "target": "report-total",
+      "as": "total"
+    },
+    {
+      "op": "readValue",
+      "target": "reimbursement",
+      "as": "reimbursement"
+    },
+    {
+      "op": "click",
+      "target": "report-header-dismiss"
+    }
+  ]
+}

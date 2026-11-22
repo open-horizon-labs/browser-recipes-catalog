@@ -1,0 +1,89 @@
+{
+  "id": "fill-lodging",
+  "title": "Fill and check an unsaved lodging form",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "stay": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "string",
+      "required": true
+    },
+    "purpose": {
+      "type": "string",
+      "required": true
+    },
+    "merchant": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "fill",
+      "target": "hotel-date-range",
+      "input": "stay"
+    },
+    {
+      "op": "assertValue",
+      "target": "hotel-date-range",
+      "input": "stay"
+    },
+    {
+      "op": "fill",
+      "target": "transaction-date",
+      "input": "date"
+    },
+    {
+      "op": "assertValue",
+      "target": "transaction-date",
+      "input": "date"
+    },
+    {
+      "op": "fill",
+      "target": "business-purpose",
+      "input": "purpose"
+    },
+    {
+      "op": "assertValue",
+      "target": "business-purpose",
+      "input": "purpose"
+    },
+    {
+      "op": "fill",
+      "target": "vendor",
+      "input": "merchant"
+    },
+    {
+      "op": "assertValue",
+      "target": "vendor",
+      "input": "merchant"
+    },
+    {
+      "op": "fill",
+      "target": "expense-amount",
+      "input": "amount"
+    },
+    {
+      "op": "assertValue",
+      "target": "expense-amount",
+      "input": "amount"
+    }
+  ]
+}

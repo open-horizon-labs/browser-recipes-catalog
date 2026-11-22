@@ -1,0 +1,45 @@
+{
+  "id": "open-expense-form",
+  "title": "Open a manual expense form by its exact type",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "expense-type": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "add-expense"
+    },
+    {
+      "op": "click",
+      "target": "menu-items",
+      "match": {
+        "text": "Manually Create Expense"
+      }
+    },
+    {
+      "op": "click",
+      "target": "expense-type-option",
+      "match": {
+        "input": "expense-type"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "expense-amount"
+    }
+  ]
+}

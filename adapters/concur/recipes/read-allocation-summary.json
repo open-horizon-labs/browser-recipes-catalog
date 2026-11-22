@@ -1,0 +1,47 @@
+{
+  "id": "read-allocation-summary",
+  "title": "Read Allocation Summary and close its dialog",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "report-details"
+    },
+    {
+      "op": "click",
+      "target": "menu-items",
+      "match": {
+        "text": "Allocation Summary"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "report-dialog",
+      "text": "Code"
+    },
+    {
+      "op": "read",
+      "target": "report-dialog",
+      "as": "allocation-summary"
+    },
+    {
+      "op": "click",
+      "target": "dialog-button",
+      "match": {
+        "text": "Close"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "fill-room-rate",
+  "title": "Fill a nightly lodging rate in the room worksheet",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "room-rate-label": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "fill",
+      "target": "room-rate-inputs",
+      "input": "amount",
+      "match": {
+        "input": "room-rate-label",
+        "attribute": "label"
+      }
+    },
+    {
+      "op": "assertValue",
+      "target": "room-rate-inputs",
+      "input": "amount",
+      "match": {
+        "input": "room-rate-label",
+        "attribute": "label"
+      }
+    }
+  ]
+}

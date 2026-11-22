@@ -1,0 +1,45 @@
+{
+  "id": "open-itemization-form",
+  "title": "Open the itemization editor for an exact expense type",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "itemization-type": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "toolbar-button",
+      "match": {
+        "text": "Add Itemization"
+      }
+    },
+    {
+      "op": "click",
+      "target": "picker-button",
+      "match": {
+        "text": "Show options for Expense Type",
+        "attribute": "aria-label"
+      }
+    },
+    {
+      "op": "click",
+      "target": "expense-type-option",
+      "match": {
+        "input": "itemization-type"
+      }
+    }
+  ]
+}

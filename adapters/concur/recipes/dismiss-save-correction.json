@@ -1,0 +1,31 @@
+{
+  "id": "dismiss-save-correction",
+  "title": "Return to the report from the correction prompt",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "alert-dialog",
+      "text": "Would you like to make corrections now?"
+    },
+    {
+      "op": "click",
+      "target": "alert-button",
+      "match": {
+        "text": "No"
+      }
+    }
+  ]
+}

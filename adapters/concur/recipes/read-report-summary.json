@@ -1,0 +1,47 @@
+{
+  "id": "read-report-summary",
+  "title": "Read Report Summary and close its dialog",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "report-details"
+    },
+    {
+      "op": "click",
+      "target": "menu-items",
+      "match": {
+        "text": "Report Summary"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "report-dialog",
+      "text": "Reimbursements"
+    },
+    {
+      "op": "read",
+      "target": "report-dialog",
+      "as": "summary"
+    },
+    {
+      "op": "click",
+      "target": "dialog-button",
+      "match": {
+        "text": "Close"
+      }
+    }
+  ]
+}

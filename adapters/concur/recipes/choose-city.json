@@ -1,0 +1,47 @@
+{
+  "id": "choose-city",
+  "title": "Search for and select a city on the open expense form",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "query": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "picker-button",
+      "match": {
+        "text": "Show options for City",
+        "attribute": "aria-label"
+      }
+    },
+    {
+      "op": "fill",
+      "target": "picker-search",
+      "input": "query"
+    },
+    {
+      "op": "click",
+      "target": "picker-results",
+      "match": {
+        "input": "city"
+      }
+    }
+  ]
+}

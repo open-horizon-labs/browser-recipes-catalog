@@ -1,0 +1,31 @@
+{
+  "id": "select-allocation-row",
+  "title": "Select a reviewed custom split by its complete row text",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "row-text": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "allocation-inputs",
+      "match": {
+        "input": "row-text",
+        "within": "[role=\"row\"]"
+      }
+    }
+  ]
+}

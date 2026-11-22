@@ -1,0 +1,51 @@
+{
+  "id": "choose-allocation-code",
+  "title": "Search an allocation picker and select the exact displayed result",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "picker-label": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "option-label": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "picker-button",
+      "match": {
+        "input": "picker-label",
+        "attribute": "aria-label"
+      }
+    },
+    {
+      "op": "fill",
+      "target": "picker-search",
+      "input": "code"
+    },
+    {
+      "op": "click",
+      "target": "picker-option",
+      "match": {
+        "input": "option-label"
+      }
+    }
+  ]
+}
