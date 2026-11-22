@@ -17,11 +17,6 @@
       "minRows": 1,
       "waitMs": 2000,
       "as": "stories"
-    },
-    {
-      "op": "read",
-      "target": "first-headline",
-      "as": "headline"
     }
   ]
 }

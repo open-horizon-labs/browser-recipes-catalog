@@ -8,7 +8,7 @@ Place a workflow in `workflows/<id>.json`. The file name matches its `id`. The p
 - Use `op: "transform"` with a built-in `transform` for deterministic operations. Argument references point to earlier step IDs and output fields, such as `read-front.headline`. A field entered in an earlier step is available through `step-id.$fields.field-id`. A transform marked `select: true` exposes the checked values through `step-id.$selected`.
 - Provide a receipt for writes when the app offers one. If an attempted write has an uncertain outcome, verify the destination before retrying. Test the write on fixture or disposable data.
 
-See the [read-only headlines comparison](../workflows/compare-hacker-news.json) and the [calendar workflow](../workflows/outlook-to-google-calendar.json) for examples. Add runtime transforms in the [Browser Recipes runtime repository](https://github.com/open-horizon-labs/browser-recipes).
+See the [Hacker News filtering workflow](../workflows/filter-hacker-news.json) and the [calendar workflow](../workflows/outlook-to-google-calendar.json) for examples. Add runtime transforms in the [Browser Recipes runtime repository](https://github.com/open-horizon-labs/browser-recipes).
 
 For repeated writes, set `repeat.items` to a prior result array and map item properties onto recipe inputs with `repeat.map`. Each item has its own approval and checkpoint. A `repeat.verify` can name a read-only recipe, its inputs, an output field and the expected value. An uncertain write stays pending review until the user checks it.
 
