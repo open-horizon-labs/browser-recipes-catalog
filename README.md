@@ -6,8 +6,7 @@ Each JSON file in [adapters](adapters) describes one browser app. An adapter own
 
 From this repository, run `node scripts/pack.mjs > /tmp/tab-recipes-catalog.json`. Paste the resulting JSON array into the runtime's catalog importer. Grant access to the sites you use. To import just one adapter, enclose its JSON object in an array.
 
-* **Workshop** runs on your machine. Serve it with `python3 -m http.server 8765 --bind 127.0.0.1 --directory demo` and open `http://127.0.0.1:8765/`. Recipes navigate to a support ticket, save a response and read the stored value, or download the ticket's dispatch note. Changes stay in that tab's session storage.
-* **Hacker News** reads the leading headline from the front page or the newest submissions. Both recipes share one named control.
+**Hacker News** reads the leading headline from the front page or the newest submissions. Both recipes share one named control.
 
 See [live app notes](docs/live-apps.md) for the mail and expense adapters and their verification status.
 
