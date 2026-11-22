@@ -15,3 +15,5 @@ Start with the task someone will call. Identify the starting page, inputs, expec
 For tasks that use several recipes, follow [Workflow authoring](../../../docs/workflows.md) to declare the tabs, pass outputs between steps, and specify where the user reviews a write.
 
 Keep page captures, account data, and attachment contents out of the contribution. A synthetic example and the observed result shape are enough for review.
+
+After changing definitions, run `node scripts/pack.mjs > distribution/catalog.json` from the catalog root and include the updated file in the change. The extension reads it when a user opens the community catalog.

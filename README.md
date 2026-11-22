@@ -4,6 +4,10 @@ Many browser apps have no Model Context Protocol (MCP) server for the task you n
 
 When you’ve tested a flow, share the steps as a JSON recipe and the selectors in the app’s adapter. For example, the Concur recipe opens Manage Expenses, checks the heading, and reads the first active report card. Someone else can import it and call `first-expense-report-summary` from a script or agent in their own signed-in session. They get the report summary without rediscovering the page or controls. The extension can run the recipe in a background tab while they use their browser. [Concur recipe](adapters/concur/recipes/first-expense-report-summary.json)
 
+## Install from the community catalog
+
+In Browser Recipes settings, choose **Browse community catalog**, select **Recipes**, **Adapters**, or **Workflows**, and search by app or task. Choose **Review install** to see what will be added or updated. A recipe brings its adapter. An adapter includes all its published recipes. A workflow brings the recipes it calls, including verification steps and alternate app hosts. Choose **Install changes**, then grant the sites you want to run.
+
 ## Run a workflow
 
 Open both calendars in the same browser profile and show the same dates. In **Workflows**, choose [Copy Outlook events to Google Calendar](workflows/outlook-to-google-calendar.json). Review the two snapshots, choose what to send to the agent, and select the missing blocks you want to copy. Blocks are titled **Busy** by default, with an option to include titles.
@@ -21,6 +25,12 @@ Find the directory for the app’s origin after sign-in. [Browse adapters](adapt
 - **Existing app.** Add a file named `recipes/<recipe-id>.json` and document the starting page, inputs, and result in the app’s README. Check `adapter.json` for selectors you can reuse.
 - **New app.** Create `adapters/<app-id>/` with a README, an `adapter.json`, and a `recipes/` directory. Put the ID, title, exact origin, and shared selectors in `adapter.json`. You can leave `recipes/` empty while inspecting the site. [Gmail example](adapters/gmail/)
 - **Cross-app workflow.** Put an ordered definition in `workflows/<workflow-id>.json`. Reference installed adapters and recipes, use a built-in transform for deterministic data handling, and mark application writes with `effect: "write"`. [Workflow authoring](docs/workflows.md)
+
+After editing the source files, rebuild the catalog served to the extension and include it in your commit. CI checks that it matches the source definitions.
+
+```sh
+node scripts/pack.mjs > distribution/catalog.json
+```
 
 ## Example: add a recipe for Ask HN
 
