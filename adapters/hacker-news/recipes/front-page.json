@@ -1,12 +1,22 @@
 {
   "id": "front-page",
-  "title": "Read the leading front-page headline",
-  "kind": "get",
+  "title": "Read front-page stories",
+  "kind": "list",
   "effect": "read",
   "steps": [
     {
       "op": "navigate",
       "path": "/news"
+    },
+    {
+      "op": "readList",
+      "target": "story-links",
+      "attributes": [
+        "href"
+      ],
+      "minRows": 1,
+      "waitMs": 2000,
+      "as": "stories"
     },
     {
       "op": "read",

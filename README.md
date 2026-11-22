@@ -13,6 +13,7 @@ Share the recipe you tested and the selectors it uses. The next person can run t
 | Compare two calendars | Read an Outlook date range, compare it with Google Calendar, and preview missing time blocks. Choose which blocks to import. [Outlook to Google Calendar workflow](workflows/outlook-to-google-calendar.json) |
 | Create a calendar event | Prepare a timed or all-day Google Calendar event, review it, and verify the saved event. [Timed event](workflows/create-timed-calendar-event.json) · [All-day event](workflows/create-all-day-calendar-event.json) |
 | Work on a Concur expense report | Read the expense rows and report total, attach a receipt, or preview submission for a US2 report. Each task has its own recipe. [Concur recipes](adapters/concur/) |
+| Find Hacker News stories on a topic | Read the first page of Front and New, then filter the titles and links with your own prompt. [Hacker News workflow](workflows/filter-hacker-news.json) |
 | Check a mailbox | Read the first visible Gmail subject without opening the conversation, or get a summary of the first listed Outlook message. [Gmail recipe](adapters/gmail/recipes/first-visible-subject.json) · [Outlook recipe](adapters/outlook/recipes/first-message-summary.json) |
 
 ## Install from the community catalog
@@ -25,7 +26,7 @@ Open both calendars in the same browser profile in Week view. Enter the first an
 
 Enter the exact destination calendar name. The workflow opens import settings in the selected Google tab and checks the account and calendar. Approve the separate import step to attach the file and click **Import**. A missing or unclear receipt calls for checking the destination week before trying again. [Outlook recipes](adapters/outlook/) · [Google Calendar recipes](adapters/google-calendar/)
 
-[Compare Hacker News headlines](workflows/compare-hacker-news.json) is a read-only example. It reads the leading front-page and newest headlines from one explicitly selected tab and compares the returned text.
+[Filter Hacker News stories with ChatGPT](workflows/filter-hacker-news.json) reads the front page and New. Use **Additional instructions** to describe what you want to read, such as “Keep stories about browser automation and open-source developer tools.”
 
 ## Contributing
 

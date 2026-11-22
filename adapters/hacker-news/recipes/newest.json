@@ -1,12 +1,22 @@
 {
   "id": "newest",
-  "title": "Read the newest headline",
-  "kind": "get",
+  "title": "Read newest stories",
+  "kind": "list",
   "effect": "read",
   "steps": [
     {
       "op": "navigate",
       "path": "/newest"
+    },
+    {
+      "op": "readList",
+      "target": "story-links",
+      "attributes": [
+        "href"
+      ],
+      "minRows": 1,
+      "waitMs": 2000,
+      "as": "stories"
     },
     {
       "op": "read",

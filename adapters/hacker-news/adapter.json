@@ -3,6 +3,7 @@
   "title": "Hacker News",
   "origin": "https://news.ycombinator.com",
   "targets": {
-    "first-headline": "tr.athing:first-of-type .titleline > a:first-child"
+    "first-headline": "tr:nth-child(1 of .athing) .titleline > a:first-child",
+    "story-links": "tr.athing .titleline > a:first-child"
   }
 }
