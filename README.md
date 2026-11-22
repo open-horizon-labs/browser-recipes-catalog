@@ -50,7 +50,7 @@ node scripts/pack.mjs > distribution/catalog.json
 
 The Hacker News adapter already defines `story-links` for the front page and newest submissions. To try it on Ask HN, navigate to `/ask`, read the same target, and check the result against the page.
 
-1. **Load your working catalog.** Install the extension and CLI. With the two repositories side by side, run the packer from the catalog root. In extension settings, open **Installed library**, choose the resulting file, review the changes, and click **Install changes**. Grant the app’s origin and enable developer tools. Imports update matching IDs and preserve other installed definitions. The packer normally emits both. Use `--adapters-only` for extension versions that accept only an adapter array. [Runtime setup](https://github.com/open-horizon-labs/browser-recipes#first-run-on-linux)
+1. **Load your working catalog.** Install the extension and CLI. With the two repositories side by side, run the packer from the catalog root. In extension settings, open **Installed library**, choose the resulting file, review the changes, and click **Install changes**. Grant the app’s origin and enable developer tools. Imports update matching IDs and preserve other installed definitions. The packer normally emits both. Use `--adapters-only` for extension versions that accept only an adapter array. [Runtime setup](https://github.com/open-horizon-labs/browser-recipes/blob/main/docs/getting-started.md)
 
    ```sh
    node scripts/pack.mjs > /tmp/browser-recipes-catalog.json
