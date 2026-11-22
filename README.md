@@ -26,7 +26,7 @@ Find the directory for the app’s origin after sign-in. [Browse adapters](adapt
 
 The Hacker News adapter already defines `first-headline` for the front page and newest submissions. To try it on Ask HN, navigate to `/ask`, read the same target, and check the result against the page.
 
-1. **Load your working catalog.** Install the extension and CLI. With the two repositories side by side, run the packer from the catalog root. In extension settings, load the resulting file, choose **Save catalog**, grant the app’s origin, and enable developer tools. Saving replaces your local catalog, so include any private adapters and workflows you want to keep. The packer normally emits both. Use `--adapters-only` for extension versions that accept only an adapter array. [Runtime setup](https://github.com/open-horizon-labs/browser-recipes#first-run-on-linux)
+1. **Load your working catalog.** Install the extension and CLI. With the two repositories side by side, run the packer from the catalog root. In extension settings, open **Installed library**, choose the resulting file, review the changes, and click **Install changes**. Grant the app’s origin and enable developer tools. Imports update matching IDs and preserve other installed definitions. The packer normally emits both. Use `--adapters-only` for extension versions that accept only an adapter array. [Runtime setup](https://github.com/open-horizon-labs/browser-recipes#first-run-on-linux)
 
    ```sh
    node scripts/pack.mjs > /tmp/browser-recipes-catalog.json
@@ -53,7 +53,7 @@ The Hacker News adapter already defines `first-headline` for the front page and 
    JSON
    ```
 
-3. **Test the installed recipe.** Compare `outputs.headline` with the leading title on the Ask page. Save the inner `recipe` object as `adapters/hacker-news/recipes/ask-headline.json`. Pack and save the catalog again. Turn developer tools off, bring another tab to the foreground, and run the recipe again.
+3. **Test the installed recipe.** Compare `outputs.headline` with the leading title on the Ask page. Save the inner `recipe` object as `adapters/hacker-news/recipes/ask-headline.json`. Choose that recipe file under **Installed library**, select its adapter, and click **Install changes**. Turn developer tools off, bring another tab to the foreground, and run the recipe again.
 
    ```sh
    ../browser-recipes/bridge/browser-recipes run '{"tabId":123,"adapterId":"hacker-news","recipeId":"ask-headline","inputs":{}}'

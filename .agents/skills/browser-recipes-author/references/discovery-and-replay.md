@@ -8,7 +8,7 @@ Run commands from the catalog root. These examples assume the runtime checkout i
 node scripts/pack.mjs > /tmp/browser-recipes-catalog.json
 ```
 
-Packing checks the file layout and IDs. **Save catalog** in extension settings validates selectors’ target names, inputs, and operations against the runtime schema. Saving replaces the installed list. Preserve any private adapters in that list, or use a separate test profile. Grant the exact site origin, enable the local bridge and developer tools, and open the app.
+Packing checks the file layout and IDs. **Install changes** in extension settings validates selectors’ target names, inputs, and operations against the runtime schema. Imports merge by ID. For a standalone recipe file, choose its owning adapter. Grant the exact site origin, enable the local bridge and developer tools, and open the app.
 
 For an offline schema check with the runtime checkout present:
 
@@ -32,7 +32,7 @@ Replace the example IDs with the installed adapter ID and a tab ID returned by `
 
 ## Test the draft, then the installed recipe
 
-After adding named targets to `adapter.json`, repack and save the catalog so `dev.test` can resolve them. The draft command takes the recipe object itself. This example uses `jq` to build a request from the file, avoiding a second copy of the steps.
+After adding named targets to `adapter.json`, install the updated adapter file so `dev.test` can resolve them. The draft command takes the recipe object itself. This example uses `jq` to build a request from the file, avoiding a second copy of the steps.
 
 ```sh
 jq -n --argjson tab 123 --arg adapter issue-tracker \
