@@ -10,7 +10,7 @@ In Browser Recipes settings, choose **Browse community catalog**, select **Recip
 
 ## Run a workflow
 
-Open both calendars in the same browser profile and show the same dates. In **Workflows**, choose [Copy Outlook events to Google Calendar](workflows/outlook-to-google-calendar.json). Review the two snapshots, choose what to send to the agent, and select the missing blocks you want to copy. Blocks are titled **Busy** by default, with an option to include titles.
+Open both calendars in the same browser profile in Week view. Enter the first and last day to compare when the workflow starts. In **Workflows**, choose [Copy Outlook events to Google Calendar](workflows/outlook-to-google-calendar.json). Review the two snapshots, choose what to send to the agent, and select the missing blocks you want to copy. Blocks are titled **Busy** by default, with an option to include titles.
 
 Enter the exact destination calendar name. The workflow opens import settings in the selected Google tab and checks the account and calendar. Approve the separate import step to attach the file and click **Import**. A missing or unclear receipt calls for checking the destination week before trying again. [Outlook recipes](adapters/outlook/) · [Google Calendar recipes](adapters/google-calendar/)
 
