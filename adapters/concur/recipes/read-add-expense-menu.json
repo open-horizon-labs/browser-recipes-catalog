@@ -1,0 +1,32 @@
+{
+  "id": "read-add-expense-menu",
+  "title": "Read the choices under Add Expense and close the menu",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "add-expense"
+    },
+    {
+      "op": "readList",
+      "target": "menu-items",
+      "as": "choices"
+    },
+    {
+      "op": "click",
+      "target": "add-expense"
+    }
+  ]
+}

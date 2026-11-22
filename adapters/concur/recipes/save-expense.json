@@ -1,0 +1,48 @@
+{
+  "id": "save-expense",
+  "title": "Save the reviewed expense on this draft",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "report-number"
+    },
+    {
+      "op": "assertValue",
+      "target": "approval-status",
+      "value": "Not Submitted"
+    },
+    {
+      "op": "click",
+      "target": "report-header-dismiss"
+    },
+    {
+      "op": "assertValue",
+      "target": "expense-amount",
+      "input": "amount"
+    },
+    {
+      "op": "click",
+      "target": "expense-save",
+      "match": {
+        "text": "Save Expense"
+      }
+    }
+  ]
+}

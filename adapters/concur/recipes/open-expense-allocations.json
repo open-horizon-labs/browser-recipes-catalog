@@ -1,0 +1,35 @@
+{
+  "id": "open-expense-allocations",
+  "title": "Open allocations for the single selected expense",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "selected-report-row"
+    },
+    {
+      "op": "click",
+      "target": "toolbar-button",
+      "match": {
+        "text": "Allocate"
+      }
+    },
+    {
+      "op": "read",
+      "target": "report-dialog",
+      "as": "allocation-editor"
+    }
+  ]
+}

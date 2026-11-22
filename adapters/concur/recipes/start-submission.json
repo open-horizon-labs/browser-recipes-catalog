@@ -1,0 +1,52 @@
+{
+  "id": "start-submission",
+  "title": "Start authorized submission for the verified draft",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "report-title": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "report-title",
+      "match": {
+        "input": "report-title"
+      }
+    },
+    {
+      "op": "click",
+      "target": "report-number"
+    },
+    {
+      "op": "assertValue",
+      "target": "approval-status",
+      "value": "Not Submitted"
+    },
+    {
+      "op": "click",
+      "target": "report-header-dismiss"
+    },
+    {
+      "op": "click",
+      "target": "submit-button"
+    },
+    {
+      "op": "read",
+      "target": "report-dialog",
+      "as": "submission-review"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "choose-fee-type",
+  "title": "Select the exact Other expense category",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "fee-type": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "picker-button",
+      "match": {
+        "text": "Search filter options for Other types",
+        "attribute": "aria-label"
+      }
+    },
+    {
+      "op": "click",
+      "target": "picker-option",
+      "match": {
+        "input": "fee-type"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "select-report-expense",
+  "title": "Select one expense by its exact checkbox label",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "expense-label": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "report-selection",
+      "match": {
+        "input": "expense-label",
+        "attribute": "label"
+      }
+    }
+  ]
+}

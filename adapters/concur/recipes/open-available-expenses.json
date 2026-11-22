@@ -1,0 +1,44 @@
+{
+  "id": "open-available-expenses",
+  "title": "Open the available-expenses dialog and read its contents",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "menu-label": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "add-expense"
+    },
+    {
+      "op": "click",
+      "target": "menu-items",
+      "match": {
+        "input": "menu-label"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "available-panel",
+      "text": "Card Transactions"
+    },
+    {
+      "op": "read",
+      "target": "available-panel",
+      "as": "available-expenses"
+    }
+  ]
+}

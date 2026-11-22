@@ -1,0 +1,32 @@
+{
+  "id": "read-available-expenses",
+  "title": "Read the open available-expenses dialog",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "read",
+      "target": "available-panel",
+      "as": "available-expenses"
+    },
+    {
+      "op": "readList",
+      "target": "available-checkboxes",
+      "as": "available-labels",
+      "attributes": [
+        "label"
+      ]
+    }
+  ]
+}

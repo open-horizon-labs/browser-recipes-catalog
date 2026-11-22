@@ -1,0 +1,31 @@
+{
+  "id": "select-available-expense",
+  "title": "Stage one exactly identified available-expense row",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "available-label": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "available-selection",
+      "match": {
+        "input": "available-label",
+        "attribute": "label"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "read-lodging-itemization-summary",
+  "title": "Read saved hotel itemizations without opening an editor",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "row-text": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "itemization-toggle",
+      "match": {
+        "input": "row-text",
+        "within": "[role=\"row\"]"
+      }
+    },
+    {
+      "op": "read",
+      "target": "itemization-dialog",
+      "as": "itemizations"
+    },
+    {
+      "op": "click",
+      "target": "itemization-close",
+      "match": {
+        "text": "Close",
+        "attribute": "aria-label"
+      }
+    }
+  ]
+}

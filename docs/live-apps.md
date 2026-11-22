@@ -9,3 +9,17 @@ In a signed-in BrowserOS Neo profile, we ran the extension’s `executeDom` func
 | [Concur US2](../adapters/concur/) | `/nui/expense` | The heading contained “Manage Expenses” and the first active report card had text. |
 
 We recorded match counts and pass/fail results. These read-only checks covered the page operations. We tested the extension and native CLI together on a [local fixture](https://github.com/open-horizon-labs/browser-recipes/tree/main/integration/fixtures/workshop).
+
+The Concur workflow port also replayed the report and allocation summaries,
+submission preview, saved lodging breakdown, and an unsaved taxi form in
+inactive signed-in tabs. The report showed Approved during the final check.
+All 44 Concur recipes also passed through the native bridge on a local
+disposable fixture. The test covers receipt attachment, hotel itemization,
+import, allocations, approval dialogs, and common refusal paths. Live
+itemization saves, imports, allocation writes and submission still need a
+disposable Concur draft.
+
+From the catalog root, run `node tests/concur.mjs` after building the adjacent
+Browser Recipes runtime and installing its `integration` dependencies. Use
+`CHROMIUM_PATH` for the browser executable or `BROWSER_RECIPES_RUNTIME` for a
+different runtime checkout.

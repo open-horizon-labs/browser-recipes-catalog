@@ -1,0 +1,37 @@
+{
+  "id": "remove-selected-allocation",
+  "title": "Remove the selected split in the allocation editor",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "modal-heading",
+      "match": {
+        "text": "Allocate"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "selected-allocation-row"
+    },
+    {
+      "op": "click",
+      "target": "dialog-button",
+      "match": {
+        "text": "Remove"
+      }
+    }
+  ]
+}

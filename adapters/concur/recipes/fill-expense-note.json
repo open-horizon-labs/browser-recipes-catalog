@@ -1,0 +1,33 @@
+{
+  "id": "fill-expense-note",
+  "title": "Fill and check the expense comment",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "note": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "fill",
+      "target": "expense-note",
+      "input": "note"
+    },
+    {
+      "op": "assertValue",
+      "target": "expense-note",
+      "input": "note"
+    }
+  ]
+}
