@@ -1,5 +1,7 @@
 # Browser Recipes Catalog
 
+This is the community repository for the **Browser Recipes** extension. Each adapter describes an app and its controls, each recipe defines a task in that app, and a workflow can combine recipes across apps. The extension and CLI that run these definitions live in the companion repository. [Browser Recipes runtime and installation guide](https://github.com/open-horizon-labs/browser-recipes/blob/main/docs/getting-started.md)
+
 Many browser apps have no Model Context Protocol (MCP) server for the task you need. You or your agent can work out the steps in the browser, but the next person faces the same questions. Which page do I open? Which control do I use? How do I check that it worked? With a computer-use tool, figuring that out can also tie up the active window and cursor.
 
 When you’ve tested a flow, share the steps as a JSON recipe and the selectors in the app’s adapter. For example, the Concur recipe opens Manage Expenses, checks the heading, and reads the first active report card. Someone else can import it and call `first-expense-report-summary` from a script or agent in their own signed-in session. They get the report summary without rediscovering the page or controls. The extension can run the recipe in a background tab while they use their browser. [Concur recipe](adapters/concur/recipes/first-expense-report-summary.json)
@@ -17,6 +19,8 @@ Enter the exact destination calendar name. The workflow opens import settings in
 [Compare Hacker News headlines](workflows/compare-hacker-news.json) is a read-only example. It reads the leading front-page and newest headlines from one explicitly selected tab and compares the returned text.
 
 ## Contributing
+
+If Outlook changes a calendar control, update the selector in this catalog’s Outlook adapter. If your recipe needs a new operation that the extension cannot execute yet, propose it in the runtime repository. [Outlook adapter](adapters/outlook/adapter.json) · [Runtime repository](https://github.com/open-horizon-labs/browser-recipes)
 
 In an agent session opened in this checkout, use `$browser-recipes-author` to add an adapter or recipe. For example, “Use `$browser-recipes-author` to add a recipe that reads the title of the current issue in our tracker.” [Contributor skill](.agents/skills/browser-recipes-author/SKILL.md)
 
@@ -75,7 +79,7 @@ Test writes on disposable records and read back the saved value. For attachment 
 
 Include the recipe file, the app README, and any changed selectors. Say where and when you tested, what you expected, and what you observed. Mention conditions another tester will need, such as an English interface or a folder with at least one message. Use synthetic examples. Omit account details, page captures, and attachment contents. [Live test results](docs/live-apps.md)
 
-For a fix, identify the catalog revision and failed step. Rerun each recipe that uses the changed selector. If the failed recipe wrote data, check what the app saved before retrying. Propose new interpreter operations in the [runtime repository](https://github.com/open-horizon-labs/browser-recipes).
+For a fix, identify the catalog revision and failed step. Rerun each recipe that uses the changed selector. If the failed recipe wrote data, check what the app saved before retrying.
 
 Use a current Browser Recipes checkout for the full catalog. The Concur adapter
 uses the runtime capabilities listed in its [README](adapters/concur/).
