@@ -2,6 +2,17 @@
   "id": "outlook-to-google-calendar",
   "title": "Copy Outlook events to Google Calendar",
   "description": "Compare an Outlook week with Google Calendar, then import selected missing blocks.",
+  "inputs": {
+    "firstDay": "extract-events.first",
+    "lastDay": "extract-events.last",
+    "sourceTimeZone": "extract-events.source-zone",
+    "destinationTimeZone": "extract-events.destination-zone",
+    "copyTitles": "prepare-file.copy-titles",
+    "calendarName": "choose-destination.calendar-name"
+  },
+  "outputs": {
+    "receipt": "apply-import.receipt"
+  },
   "tabs": {
     "source": {
       "adapterId": "outlook",

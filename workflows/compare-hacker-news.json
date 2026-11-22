@@ -2,6 +2,11 @@
   "id": "compare-hacker-news",
   "title": "Compare Hacker News headlines",
   "description": "Read the leading front-page and newest headlines in one Hacker News tab.",
+  "outputs": {
+    "left": "compare.left",
+    "right": "compare.right",
+    "equal": "compare.equal"
+  },
   "tabs": {
     "news": {
       "adapterId": "hacker-news",
