@@ -2517,7 +2517,8 @@
                 "aria-label",
                 "data-eventid"
               ],
-              "as": "events"
+              "as": "events",
+              "waitMs": 4000
             },
             {
               "op": "readList",
@@ -2923,7 +2924,8 @@
               "attributes": [
                 "aria-label"
               ],
-              "as": "events"
+              "as": "events",
+              "waitMs": 4000
             },
             {
               "op": "readList",
@@ -3014,7 +3016,8 @@
               "attributes": [
                 "aria-label"
               ],
-              "as": "events"
+              "as": "events",
+              "waitMs": 4000
             },
             {
               "op": "readList",

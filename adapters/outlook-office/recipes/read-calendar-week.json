@@ -19,7 +19,8 @@
       "attributes": [
         "aria-label"
       ],
-      "as": "events"
+      "as": "events",
+      "waitMs": 4000
     },
     {
       "op": "readList",
