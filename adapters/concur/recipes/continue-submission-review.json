@@ -1,0 +1,37 @@
+{
+  "id": "continue-submission-review",
+  "title": "Continue from the exact reviewed report totals dialog",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "reviewed-dialog": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "report-dialog",
+      "match": {
+        "input": "reviewed-dialog"
+      }
+    },
+    {
+      "op": "click",
+      "target": "submit-review-button",
+      "match": {
+        "text": "Submit Report"
+      }
+    }
+  ]
+}

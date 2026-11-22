@@ -1,0 +1,53 @@
+{
+  "id": "save-expense-allocations",
+  "title": "Save the staged and reviewed expense split",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "reviewed-table": {
+      "type": "string",
+      "required": true
+    },
+    "reviewed-percentages": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "modal-heading",
+      "match": {
+        "text": "Allocate"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "allocation-table",
+      "match": {
+        "input": "reviewed-table"
+      }
+    },
+    {
+      "op": "assertValues",
+      "target": "allocation-percent",
+      "input": "reviewed-percentages"
+    },
+    {
+      "op": "click",
+      "target": "dialog-button",
+      "match": {
+        "text": "Save"
+      }
+    }
+  ]
+}

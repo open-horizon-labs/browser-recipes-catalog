@@ -1,0 +1,38 @@
+{
+  "id": "choose-meal-type",
+  "title": "Select an exact meal type on the expense form",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "meal-type": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "picker-button",
+      "match": {
+        "text": "Search filter options for Meal Type",
+        "attribute": "aria-label"
+      }
+    },
+    {
+      "op": "click",
+      "target": "picker-option",
+      "match": {
+        "input": "meal-type"
+      }
+    }
+  ]
+}

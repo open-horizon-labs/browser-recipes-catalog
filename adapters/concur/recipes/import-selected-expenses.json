@@ -1,0 +1,42 @@
+{
+  "id": "import-selected-expenses",
+  "title": "Move the single reviewed available expense into the report",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "available-label": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "available-checked"
+    },
+    {
+      "op": "assert",
+      "target": "available-checked",
+      "match": {
+        "input": "available-label",
+        "attribute": "label"
+      }
+    },
+    {
+      "op": "click",
+      "target": "dialog-button",
+      "match": {
+        "text": "Add To Report"
+      }
+    }
+  ]
+}

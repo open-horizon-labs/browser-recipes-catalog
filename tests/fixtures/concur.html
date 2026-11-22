@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Concur recipe fixture</title>
+<style>
+  [role=row] { display: contents; }
+  [role=cell] { display: block; }
+  dialog { position: static; }
+</style>
+<main role="main">
+  <h1 class="sapcnqr-object-header__title-main">Example travel $0.00</h1>
+  <button aria-label="Report Number: EXAMPLE">EXAMPLE</button>
+  <button aria-label="Submit Report">Submit Report</button>
+  <button id="reportDetailsOpener">Report Details</button>
+  <button class="add-expense-menu-button">Add Expense</button>
+  <button class="sapcnqr-toolbar__item">Allocate</button>
+  <div id="menu"></div>
+  <section id="content"></section>
+  <section id="picker"></section>
+  <section id="dialog"></section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const section = id => document.querySelector(id);
+const state = {
+  status: 'Not Submitted', entries: [], itemizations: [], allocations: [],
+  imported: false, selected: null, currentType: '', currentAllocation: {},
+  receipt: '', city: '', meal: '', fee: '',
+};
+const types = ['Individual Meal & Tip', 'Taxi/Car Service', 'Lodging', 'Lodging Tax (Not VAT)', 'Other'];
+const available = 'Select Example Ride, 11/20/2026, $42.00';
+const toolbar = 'sapcnqr-toolbar__item';
+const saveClass = 'sapcnqr-split-button__action ' + toolbar;
+const money = amount => '$' + Number(amount).toFixed(2);
+const total = () => state.entries.reduce((sum, entry) => sum + Number(entry.amount), 0);
+const button = (name, action, attrs = '') => '<button data-action="' + action + '" ' + attrs + '>' + name + '</button>';
+const tool = (name, action) => button(name, action, 'class="' + toolbar + '"');
+const htmlAttr = value => String(value).replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
+const text = value => htmlAttr(value).replaceAll('&quot;', '"');
+const field = (id, attrs = '') => '<input id="' + id + '" ' + attrs + '>';
+const dateField = field('transactionDate-date-input-field-input');
+const costField = field('transactionAmount');
+const noteField = '<textarea id="orgUnit1"></textarea>';
+const selectField = (label, action) => button('', action, 'aria-label="' + htmlAttr(label) + '"');
+const modal = (name, body) => '<div role="dialog" aria-modal="true"><h2>' + name + '</h2>' + body + '</div>';
+const menu = entries => entries.map(([name, action]) => button(name, action, 'role="menuitem" class="sapcnqr-menu-button-item__item-button"')).join('');
+const entryLabel = entry => 'Select expense, ' + entry.type + ', ' + money(entry.amount) + ', date, ' + entry.date;
+const checkbox = label => '<label><input type="checkbox">' + text(label) + '</label>';
+const gridRow = cells => '<div role="row">' + cells.map(cell => '<div role="cell">' + cell + '</div>').join('') + '</div>';
+
+function report() {
+  $('picker').innerHTML = '';
+  $('menu').innerHTML = '';
+  const entries = state.entries.map(entry => '<div role="row"><div role="cell" class="date-cell">' + entry.date + '</div><div role="cell">' +
+    (state.status === 'Not Submitted' ? checkbox(entryLabel(entry)) : '') + text(entry.type) + ' ' +
+    text(entry.vendor) + ' ' + money(entry.amount) +
+    (entry.receipt ? button('', 'noop', 'aria-label="View receipt ' + htmlAttr(entry.receipt) + '"') : '') +
+    (entry.type === 'Lodging' ? button('', 'summary', 'aria-label="Show Itemizations Summary"') : '') +
+    button('Actions', 'actions', 'class="entries-list-actions-button"') + '</div></div>');
+  $('content').innerHTML = '<div role="table" aria-label="A List of Expense Entries">' + entries.join('') + '</div>';
+  section('h1').textContent = 'Example travel ' + money(total());
+}
+
+function header() {
+  const values = [['approvalStatus', state.status], ['reportTotal', total().toFixed(2)], ['amountDueEmployee', total().toFixed(2)]];
+  $('dialog').innerHTML = modal('Report Header', values.map(([id, value]) =>
+    field(id, 'readonly value="' + htmlAttr(value) + '"')).join('') +
+    '<div class="report-header-button-container">' +
+    button(state.status === 'Not Submitted' ? 'Cancel' : 'Close', 'dismiss', 'class="sapcnqr-button--link"') + '</div>');
+}
+
+function expenseForm(type) {
+  state.currentType = type;
+  state.receipt = '';
+  state.city = '';
+  state.meal = '';
+  $('dialog').innerHTML = '';
+  $('content').innerHTML = '<h2>Expense Details</h2>' +
+    (type === 'Lodging' ? field('hotelCheckinDate-date-input-field-input') + field('vendorAndVendorName') : field('vendorName')) +
+    (type === 'Taxi/Car Service' ? field('fromLocation') + field('toLocation') : '') +
+    dateField + field('businessPurpose') + costField + noteField +
+    selectField('Show options for City', 'city') +
+    (type === 'Individual Meal & Tip' ? selectField('Search filter options for Meal Type', 'meal') : '') +
+    field('upload-file', 'type="file" hidden') + button('Save Expense', 'save-expense', 'class="' + saveClass + '"');
+  $('upload-file').addEventListener('change', event => { state.receipt = event.target.files[0]?.name ?? ''; });
+}
+
+function selectOptions(items, action, recent = false) {
+  const options = items.map((name, index) => '<div role="option" id="' + action + index +
+    '" data-action="' + action + '" data-name="' + htmlAttr(name) + '">' + text(name) + '</div>').join('');
+  return (recent ? '<div role="group" aria-labelledby="city recent"><div role="option" data-action="wrong-city">Chicago, Illinois</div></div>' : '') +
+    '<div role="group" aria-labelledby="city">' + options + '</div>';
+}
+
+function picker(items, action, search = false, recent = false) {
+  $('picker').innerHTML = '<div class="sapcnqr-selection-list">' +
+    (search ? '<div class="sapcnqr-selection-list__search-field"><input></div>' : '') +
+    selectOptions(items, action, recent) + '</div>';
+}
+
+function itemizationsTable() {
+  return '<div role="table" aria-label="Itemizations">' + state.itemizations.map(entry =>
+    gridRow([text(entry.type), money(entry.amount)])).join('') + '</div>';
+}
+
+function itemizations() {
+  $('content').innerHTML = '<h2>Lodging expense</h2>' + tool('Add Itemization', 'new-itemization') + itemizationsTable();
+}
+
+function itemizationForm(type) {
+  state.currentType = type;
+  $('picker').innerHTML = '';
+  $('content').innerHTML = '<h2>Add Itemization</h2>' + (type === 'Lodging' ?
+    field('room-rate', 'aria-label="Room Rate for 11/20/2026"') : dateField + costField) +
+    noteField + (type === 'Other' ? selectField('Search filter options for Other types', 'fee') : '') +
+    button('Save Itemization', 'save-itemization', 'class="' + saveClass + '"');
+}
+
+function allocationEditor() {
+  $('dialog').innerHTML = modal('Allocate', '<div role="table" aria-label="Allocations">' +
+    state.allocations.map(allocation => gridRow([checkbox('Select row'), text(allocation.project + ' ' + allocation.work),
+      '<input class="percent" value="' + allocation.percent + '">'])).join('') + '</div>' +
+    button('Add', 'new-allocation') + button('Remove', 'remove-allocation') + button('Save', 'save-allocation'));
+}
+
+function newAllocation() {
+  state.currentAllocation = { project: '', work: '', percent: 0 };
+  $('dialog').insertAdjacentHTML('beforeend', modal('Add Allocation',
+    '<div class="sapcnqr-form-field">Internal Project' +
+    button('', 'clear-allocation-field', 'aria-label="Clear"') +
+    selectField('Search filter options for Internal Project', 'project') + '</div>' +
+    selectField('Search filter options for Work Package', 'work-package') + button('Save', 'stage-allocation')));
+}
+
+function saveExpense() {
+  state.entries.push({
+    type: state.currentType, date: $('transactionDate-date-input-field-input').value,
+    amount: $('transactionAmount').value, receipt: state.receipt,
+    vendor: ($('vendorName') ?? $('vendorAndVendorName')).value
+  });
+  report();
+  if (state.currentType === 'Taxi/Car Service') {
+    $('dialog').innerHTML = '<div role="alertdialog">Would you like to make corrections now?' + button('No', 'dismiss') + '</div>';
+  }
+}
+
+document.addEventListener('click', event => {
+  const target = event.target;
+  const action = target.closest('[data-action]')?.dataset.action;
+  const choice = target.dataset.name;
+  if (target.matches('button[aria-label^="Report Number:"]')) header();
+  if (target.matches('.add-expense-menu-button')) {
+    $('menu').innerHTML = $('menu').innerHTML ? '' : menu([
+      ['Manually Create Expense', 'type-menu'], [state.imported ? 'Select from Available Expenses (0)' : 'Select from Available Expenses (1)', 'available']
+    ]);
+  }
+  if (target.id === 'reportDetailsOpener') $('menu').innerHTML = menu([
+    ['Report Summary', 'report-summary'], ['Allocation Summary', 'allocation-summary']
+  ]);
+  if (target.matches('button[aria-label="Submit Report"]')) {
+    $('dialog').innerHTML = modal('Report Totals', money(total()) + button('Submit Report', 'continue-submit'));
+  }
+  if (target.textContent === 'Allocate' && target.classList.contains(toolbar)) allocationEditor();
+  const actions = {
+    dismiss: () => { $('dialog').innerHTML = ''; },
+    'report-summary': () => { $('menu').innerHTML = ''; $('dialog').innerHTML = modal('Report Summary', 'Reimbursements ' + money(total()) + button('Close', 'dismiss')); },
+    'allocation-summary': () => { $('menu').innerHTML = ''; $('dialog').innerHTML = modal('Allocation Summary', 'Code Example ' + money(total()) + button('Close', 'dismiss')); },
+    'type-menu': () => { $('menu').innerHTML = ''; $('dialog').innerHTML = modal('Add Expense', selectOptions(types, 'new-expense')); },
+    'new-expense': () => expenseForm(choice),
+    city: () => picker(['Chicago, Illinois'], 'pick-city', true, true),
+    meal: () => picker(['Breakfast', 'Lunch'], 'pick-meal'),
+    fee: () => picker(['Other-Miscellaneous'], 'pick-fee'),
+    'wrong-city': () => { state.city = 'wrong row'; $('picker').innerHTML = ''; },
+    'pick-city': () => { state.city = choice; $('picker').innerHTML = ''; },
+    'pick-meal': () => { state.meal = choice; $('picker').innerHTML = ''; },
+    'pick-fee': () => { state.fee = choice; $('picker').innerHTML = ''; },
+    'save-expense': saveExpense,
+    summary: () => { $('dialog').innerHTML = modal('Itemizations', '<div aria-label="Itemization Summary">' +
+      itemizationsTable() + '</div>' + button('', 'dismiss', 'aria-label="Close"')); },
+    actions: () => { $('menu').innerHTML = menu([['Edit', 'edit']]); },
+    edit: () => { $('menu').innerHTML = ''; $('content').innerHTML = button('Itemizations', 'itemizations', 'role="tab"'); },
+    itemizations,
+    'new-itemization': () => { $('content').innerHTML = '<h2>Add Itemization</h2>' +
+      selectField('Show options for Expense Type', 'itemization-menu'); },
+    'itemization-menu': () => picker(types, 'pick-itemization'),
+    'pick-itemization': () => itemizationForm(choice),
+    'save-itemization': () => { state.itemizations.push({type: state.currentType, amount: ($('room-rate') ?? $('transactionAmount')).value}); itemizations(); },
+    available: () => { $('menu').innerHTML = ''; $('dialog').innerHTML = modal('Available Expenses',
+      '<div role="tabpanel">Card Transactions' + gridRow([checkbox(available), 'Example Ride $42.00']) +
+      '</div>' + button('Add To Report', 'import')); },
+    import: () => { state.imported = true; state.entries.push({ type: 'Taxi/Car Service', date: '11/20/2026', amount: '42.00',
+      vendor: 'Example Ride', receipt: 'ride.pdf' }); $('dialog').innerHTML = ''; report(); },
+    'new-allocation': newAllocation,
+    'clear-allocation-field': () => { state.currentAllocation.project = ''; },
+    project: () => picker(['Example Internal Project'], 'pick-project', true),
+    'work-package': () => picker(['Example Work Package', 'Second Work Package'], 'pick-work', true),
+    'pick-project': () => { state.currentAllocation.project = choice; $('picker').innerHTML = ''; },
+    'pick-work': () => { state.currentAllocation.work = choice; $('picker').innerHTML = ''; },
+    'stage-allocation': () => { state.allocations.push(state.currentAllocation); allocationEditor(); },
+    'remove-allocation': () => { state.allocations = state.allocations.filter((_, index) =>
+      !document.querySelectorAll('[aria-label="Allocations"] input[type=checkbox]')[index].checked); allocationEditor(); },
+    'save-allocation': () => { state.allocations.forEach((entry, index) => { entry.percent = Number(document.querySelectorAll('.percent')[index].value); }); $('dialog').innerHTML = ''; },
+    'continue-submit': () => { $('dialog').innerHTML = modal('Expense Report Submission', 'I certify this example' + button('Accept & Submit', 'submit')); },
+    submit: () => { state.status = 'Submitted'; $('dialog').innerHTML = ''; report(); },
+  };
+  actions[action]?.();
+});
+window.fixtureState = state;
+report();
+</script>

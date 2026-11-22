@@ -1,0 +1,45 @@
+{
+  "id": "set-allocation-percent",
+  "title": "Set a reviewed allocation row percentage",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "row-text": {
+      "type": "string",
+      "required": true
+    },
+    "percent": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "fill",
+      "target": "allocation-percent",
+      "input": "percent",
+      "match": {
+        "input": "row-text",
+        "within": "[role=\"row\"]"
+      }
+    },
+    {
+      "op": "assertValue",
+      "target": "allocation-percent",
+      "input": "percent",
+      "match": {
+        "input": "row-text",
+        "within": "[role=\"row\"]"
+      }
+    }
+  ]
+}

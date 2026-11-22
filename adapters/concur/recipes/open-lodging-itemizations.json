@@ -1,0 +1,47 @@
+{
+  "id": "open-lodging-itemizations",
+  "title": "Open the selected lodging expense and read its itemizations",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "selected-report-row",
+      "text": "Lodging"
+    },
+    {
+      "op": "click",
+      "target": "selected-row-actions"
+    },
+    {
+      "op": "click",
+      "target": "menu-items",
+      "match": {
+        "text": "Edit"
+      }
+    },
+    {
+      "op": "click",
+      "target": "tabs",
+      "match": {
+        "text": "Itemizations"
+      }
+    },
+    {
+      "op": "read",
+      "target": "itemizations-table",
+      "as": "itemizations"
+    }
+  ]
+}

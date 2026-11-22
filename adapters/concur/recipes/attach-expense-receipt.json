@@ -1,0 +1,32 @@
+{
+  "id": "attach-expense-receipt",
+  "title": "Stage a receipt in the open expense",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "receipt": {
+      "type": "attachment",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "expense-amount"
+    },
+    {
+      "op": "attach",
+      "target": "upload-receipt",
+      "input": "receipt"
+    }
+  ]
+}

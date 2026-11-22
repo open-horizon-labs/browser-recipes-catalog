@@ -1,0 +1,36 @@
+{
+  "id": "verify-saved-expense",
+  "title": "Verify the expected expense now appears in the report",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "expense-label": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "report-checkboxes",
+      "match": {
+        "input": "expense-label",
+        "attribute": "label"
+      }
+    },
+    {
+      "op": "read",
+      "target": "expense-grid",
+      "as": "expenses"
+    }
+  ]
+}

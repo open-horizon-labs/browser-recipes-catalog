@@ -1,0 +1,58 @@
+{
+  "id": "read-expense-report",
+  "title": "Read the open expense report, receipts and visible alerts",
+  "steps": [
+    {
+      "op": "read",
+      "target": "report-number",
+      "as": "report-number"
+    },
+    {
+      "op": "read",
+      "target": "report-title",
+      "as": "title"
+    },
+    {
+      "op": "read",
+      "target": "expense-grid",
+      "as": "expenses"
+    },
+    {
+      "op": "readList",
+      "target": "report-rows",
+      "as": "rows"
+    },
+    {
+      "op": "readList",
+      "target": "receipt-buttons",
+      "as": "receipts",
+      "attributes": [
+        "aria-label"
+      ]
+    },
+    {
+      "op": "readList",
+      "target": "report-checkboxes",
+      "as": "expense-labels",
+      "attributes": [
+        "label"
+      ]
+    },
+    {
+      "op": "readList",
+      "target": "report-alerts",
+      "as": "expense-alerts",
+      "attributes": [
+        "aria-label"
+      ]
+    },
+    {
+      "op": "readList",
+      "target": "toolbar-button",
+      "as": "report-alerts",
+      "match": {
+        "text": "View Alerts"
+      }
+    }
+  ]
+}

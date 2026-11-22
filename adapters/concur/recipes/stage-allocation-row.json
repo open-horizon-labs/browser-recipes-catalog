@@ -1,0 +1,33 @@
+{
+  "id": "stage-allocation-row",
+  "title": "Stage the reviewed split in the allocation editor",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "modal-heading",
+      "match": {
+        "text": "Add Allocation"
+      }
+    },
+    {
+      "op": "click",
+      "target": "new-allocation-button",
+      "match": {
+        "text": "Save"
+      }
+    }
+  ]
+}

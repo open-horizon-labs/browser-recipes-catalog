@@ -1,0 +1,47 @@
+{
+  "id": "fill-tax-or-fee-itemization",
+  "title": "Fill and check a tax or fee itemization",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "fill",
+      "target": "transaction-date",
+      "input": "date"
+    },
+    {
+      "op": "assertValue",
+      "target": "transaction-date",
+      "input": "date"
+    },
+    {
+      "op": "fill",
+      "target": "expense-amount",
+      "input": "amount"
+    },
+    {
+      "op": "assertValue",
+      "target": "expense-amount",
+      "input": "amount"
+    }
+  ]
+}

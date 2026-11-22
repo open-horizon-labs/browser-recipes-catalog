@@ -64,4 +64,6 @@ Include the recipe file, the app README, and any changed selectors. Say where an
 
 For a fix, identify the catalog revision and failed step. Rerun each recipe that uses the changed selector. If the failed recipe wrote data, check what the app saved before retrying. Propose new interpreter operations in the [runtime repository](https://github.com/open-horizon-labs/browser-recipes).
 
-Compatible with Browser Recipes 0.1. [Apache-2.0 license](LICENSE)
+Use a current Browser Recipes checkout for the full catalog. The Concur adapter
+uses the runtime capabilities listed in its [README](adapters/concur/).
+[Apache-2.0 license](LICENSE)

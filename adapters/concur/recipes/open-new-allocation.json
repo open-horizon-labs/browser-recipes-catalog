@@ -1,0 +1,31 @@
+{
+  "id": "open-new-allocation",
+  "title": "Open a new split in the allocation dialog",
+  "inputs": {
+    "report-number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "report-number",
+      "match": {
+        "input": "report-number"
+      }
+    },
+    {
+      "op": "click",
+      "target": "dialog-button",
+      "match": {
+        "text": "Add"
+      }
+    },
+    {
+      "op": "read",
+      "target": "new-allocation-dialog",
+      "as": "new-allocation"
+    }
+  ]
+}
