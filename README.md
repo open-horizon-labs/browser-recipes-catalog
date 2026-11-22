@@ -4,11 +4,13 @@ Many browser apps have no Model Context Protocol (MCP) server for the task you n
 
 When you’ve tested a flow, share the steps as a JSON recipe and the selectors in the app’s adapter. For example, the Concur recipe opens Manage Expenses, checks the heading, and reads the first active report card. Someone else can import it and call `first-expense-report-summary` from a script or agent in their own signed-in session. They get the report summary without rediscovering the page or controls. The extension can run the recipe in a background tab while they use their browser. [Concur recipe](adapters/concur/recipes/first-expense-report-summary.json)
 
-## Copy Outlook availability to Google Calendar
+## Run a workflow
 
-With both accounts signed in to tabs in the same browser profile, open the intended week in both apps. Review Outlook’s filters and select only the target Google calendar before reading. The two `read-calendar-week` recipes collect visible events, displayed dates, and account labels. In Browser Recipes’ **Calendar sync** workflow, review the normalized dates and time zones, then review matches, proposed additions, and conflicts. The import uses private **Busy** blocks by default. You can choose to include event titles.
+Open both calendars in the same browser profile and show the same dates. In **Workflows**, choose [Copy Outlook events to Google Calendar](workflows/outlook-to-google-calendar.json). Review the two snapshots, choose what to send to the agent, and select the missing blocks you want to copy. Blocks are titled **Busy** by default, with an option to include titles.
 
-On the selected Google account’s **Import & export** page, `stage-calendar-import` sets the file input. Confirm the destination in **Add to calendar**, then click **Import** yourself and recheck the week. The recipes do not edit or delete existing events. [Calendar sync walkthrough](https://github.com/open-horizon-labs/browser-recipes/blob/main/docs/calendar-sync.md) · [Outlook recipes](adapters/outlook/) · [Google Calendar recipes](adapters/google-calendar/)
+Before approving the import, open **Settings → Import & export** in the same Google Calendar tab and check **Add to calendar**. The apply recipe verifies the same signed-in Google account and clicks **Import**. A missing or unclear receipt calls for checking the destination week before trying again. [Outlook recipes](adapters/outlook/) · [Google Calendar recipes](adapters/google-calendar/)
+
+[Compare Hacker News headlines](workflows/compare-hacker-news.json) is a read-only example. It reads the leading front-page and newest headlines from one explicitly selected tab and compares the returned text.
 
 ## Contributing
 
@@ -18,12 +20,13 @@ Find the directory for the app’s origin after sign-in. [Browse adapters](adapt
 
 - **Existing app.** Add a file named `recipes/<recipe-id>.json` and document the starting page, inputs, and result in the app’s README. Check `adapter.json` for selectors you can reuse.
 - **New app.** Create `adapters/<app-id>/` with a README, an `adapter.json`, and a `recipes/` directory. Put the ID, title, exact origin, and shared selectors in `adapter.json`. You can leave `recipes/` empty while inspecting the site. [Gmail example](adapters/gmail/)
+- **Cross-app workflow.** Put an ordered definition in `workflows/<workflow-id>.json`. Reference installed adapters and recipes, use a built-in transform for deterministic data handling, and mark application writes with `effect: "write"`. [Workflow authoring](docs/workflows.md)
 
 ## Example: add a recipe for Ask HN
 
 The Hacker News adapter already defines `first-headline` for the front page and newest submissions. To try it on Ask HN, navigate to `/ask`, read the same target, and check the result against the page.
 
-1. **Load your working catalog.** Install the extension and CLI. With the two repositories side by side, run the packer from the catalog root. In extension settings, load the resulting file, choose **Save catalog**, grant the app’s origin, and enable developer tools. Saving replaces your local adapter list, so include any private adapters you want to keep. [Runtime setup](https://github.com/open-horizon-labs/browser-recipes#first-run-on-linux)
+1. **Load your working catalog.** Install the extension and CLI. With the two repositories side by side, run the packer from the catalog root. In extension settings, load the resulting file, choose **Save catalog**, grant the app’s origin, and enable developer tools. Saving replaces your local catalog, so include any private adapters and workflows you want to keep. The packer normally emits both. Use `--adapters-only` for extension versions that accept only an adapter array. [Runtime setup](https://github.com/open-horizon-labs/browser-recipes#first-run-on-linux)
 
    ```sh
    node scripts/pack.mjs > /tmp/browser-recipes-catalog.json
