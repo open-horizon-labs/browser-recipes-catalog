@@ -1,0 +1,43 @@
+{
+  "id": "verify-calendar-event",
+  "title": "Verify one exact event label in the visible week",
+  "inputs": {
+    "destination-account": {
+      "type": "string",
+      "required": true
+    },
+    "event-label": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "calendar-account",
+      "attribute": "aria-label",
+      "input": "destination-account"
+    },
+    {
+      "op": "assert",
+      "target": "calendar-events",
+      "match": {
+        "input": "event-label",
+        "attribute": "aria-label"
+      }
+    },
+    {
+      "op": "readList",
+      "target": "calendar-events",
+      "match": {
+        "input": "event-label",
+        "attribute": "aria-label"
+      },
+      "attributes": [
+        "aria-label",
+        "data-eventid"
+      ],
+      "as": "event"
+    }
+  ]
+}

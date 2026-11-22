@@ -8,7 +8,7 @@ When you’ve tested a flow, share the steps as a JSON recipe and the selectors 
 
 Open both calendars in the same browser profile and show the same dates. In **Workflows**, choose [Copy Outlook events to Google Calendar](workflows/outlook-to-google-calendar.json). Review the two snapshots, choose what to send to the agent, and select the missing blocks you want to copy. Blocks are titled **Busy** by default, with an option to include titles.
 
-Before approving the import, open **Settings → Import & export** in the same Google Calendar tab and check **Add to calendar**. The apply recipe verifies the same signed-in Google account and clicks **Import**. A missing or unclear receipt calls for checking the destination week before trying again. [Outlook recipes](adapters/outlook/) · [Google Calendar recipes](adapters/google-calendar/)
+Enter the exact destination calendar name. The workflow opens import settings in the selected Google tab and checks the account and calendar. Approve the separate import step to attach the file and click **Import**. A missing or unclear receipt calls for checking the destination week before trying again. [Outlook recipes](adapters/outlook/) · [Google Calendar recipes](adapters/google-calendar/)
 
 [Compare Hacker News headlines](workflows/compare-hacker-news.json) is a read-only example. It reads the leading front-page and newest headlines from one explicitly selected tab and compares the returned text.
 

@@ -21,11 +21,12 @@ import, allocations, approval dialogs, and common refusal paths. Live
 itemization saves, imports, allocation writes and submission still need a
 disposable Concur draft.
 
-From the catalog root, run `node tests/concur.mjs` after building the adjacent
-Browser Recipes runtime and installing its `integration` dependencies. Use
-`CHROMIUM_PATH` for the browser executable or `BROWSER_RECIPES_RUNTIME` for a
-different runtime checkout.
+The fixture and browser suite live in the runtime checkout. After building the runtime and installing its integration dependencies, run `node integration/concur.mjs` from that checkout. Use `CHROMIUM_PATH` for the browser executable or `BROWSER_RECIPES_CATALOG` for a catalog outside the default sibling location. [Concur browser test](https://github.com/open-horizon-labs/browser-recipes/blob/main/integration/concur.mjs)
 
 ## Calendar recipes
 
-In the signed-in BrowserOS Neo work profile, we executed the current read operations against Outlook Calendar and Google Calendar in Week view. Both returned a range, account label and nonempty event rows. Outlook showed an active filter, and Google returned the checked calendar controls. The Google Import & export page also exposed the file input used by the staging recipe. Calendar checks read page data and changed the displayed week. No file was staged or imported.
+In the signed-in BrowserOS Neo work profile, we executed the then-installed read operations against Outlook Calendar and Google Calendar in Week view. Both returned a range, account label and nonempty event rows. Outlook showed an active filter, and Google returned the checked calendar controls. The Google Import & export page also exposed the file input used by the staging recipe. Calendar checks read page data and changed the displayed week. No file was staged or imported.
+
+The revised workflow adds a mailbox identity check, selects a named Google calendar, and applies the import after approval. These changes have been exercised on synthetic accounts in a headless browser. The live checks above predate them.
+
+Run `node integration/google-calendar-editor.mjs` from the runtime checkout to exercise the timed and all-day event workflows. [Google Calendar editor browser test](https://github.com/open-horizon-labs/browser-recipes/blob/main/integration/google-calendar-editor.mjs)

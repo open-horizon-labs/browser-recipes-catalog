@@ -15,8 +15,8 @@ For an offline schema check with the runtime checkout present:
 ```sh
 node --input-type=module -e '
   import { readFileSync } from "node:fs";
-  import { validateCatalog } from "../browser-recipes/extension/schema.js";
-  validateCatalog(JSON.parse(readFileSync("/tmp/browser-recipes-catalog.json", "utf8")));
+  import { validateBundle } from "../browser-recipes/extension/workflow.js";
+  validateBundle(JSON.parse(readFileSync("/tmp/browser-recipes-catalog.json", "utf8")));
 '
 ```
 

@@ -1,0 +1,20 @@
+{
+  "id": "outlook-office",
+  "title": "Outlook on the web (Office host)",
+  "origin": "https://outlook.office.com",
+  "targets": {
+    "first-message": "[aria-label=\"Message list\"] [role=option][aria-posinset=\"1\"]",
+    "calendar-range": "button[aria-label*=\"Jump to a specific date\"]",
+    "calendar-events": "[role=\"main\"] [data-calitemid] [role=\"button\"][aria-label]",
+    "calendar-filter": "button[aria-label=\"Filter applied\"]",
+    "calendar-account": "#owa-me-control-container button, #mectrl_main_trigger"
+  },
+  "identity": {
+    "selector": "#mectrl_main_body #mectrl_currentAccount_secondary",
+    "format": "email",
+    "reveal": {
+      "trigger": "#owa-me-control-container button:not(#mectrl_main_body button)",
+      "panel": "#mectrl_main_body"
+    }
+  }
+}

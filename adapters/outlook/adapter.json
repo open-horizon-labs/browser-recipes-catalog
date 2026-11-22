@@ -8,5 +8,13 @@
     "calendar-events": "[role=\"main\"] [data-calitemid] [role=\"button\"][aria-label]",
     "calendar-filter": "button[aria-label=\"Filter applied\"]",
     "calendar-account": "#owa-me-control-container button, #mectrl_main_trigger"
+  },
+  "identity": {
+    "selector": "#mectrl_main_body #mectrl_currentAccount_secondary",
+    "format": "email",
+    "reveal": {
+      "trigger": "#owa-me-control-container button:not(#mectrl_main_body button)",
+      "panel": "#mectrl_main_body"
+    }
   }
 }

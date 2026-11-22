@@ -1,0 +1,54 @@
+{
+  "id": "choose-import-calendar",
+  "title": "Choose the import calendar by name",
+  "inputs": {
+    "destination-account": {
+      "type": "string",
+      "required": true
+    },
+    "calendar-name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "navigate",
+      "under": "/calendar/u/",
+      "path": "/r/settings/export"
+    },
+    {
+      "op": "assert",
+      "target": "calendar-account",
+      "attribute": "aria-label",
+      "input": "destination-account"
+    },
+    {
+      "op": "assert",
+      "target": "import-button"
+    },
+    {
+      "op": "click",
+      "target": "import-picker"
+    },
+    {
+      "op": "click",
+      "target": "calendar-option",
+      "match": {
+        "input": "calendar-name"
+      }
+    },
+    {
+      "op": "assert",
+      "target": "chosen-calendar",
+      "match": {
+        "input": "calendar-name"
+      }
+    },
+    {
+      "op": "read",
+      "target": "chosen-calendar",
+      "as": "calendar"
+    }
+  ]
+}

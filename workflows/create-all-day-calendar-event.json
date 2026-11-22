@@ -1,0 +1,87 @@
+{
+  "id": "create-all-day-calendar-event",
+  "title": "Review and create one all-day Google Calendar event",
+  "description": "Prepare the new-event editor, review and approve Save, then verify the event on the displayed week.",
+  "tabs": {
+    "calendar": {
+      "adapterId": "google-calendar",
+      "label": "Google Calendar tab"
+    }
+  },
+  "steps": [
+    {
+      "id": "prepare-event",
+      "label": "Prepare and check the event editor",
+      "op": "recipe",
+      "effect": "read",
+      "tab": "calendar",
+      "recipeId": "prepare-all-day-event",
+      "description": "Start in an account-scoped Calendar tab. Enter the exact values as Google Calendar displays them.",
+      "fields": {
+        "destination-account": {
+          "type": "text",
+          "label": "Exact Google Account label",
+          "required": true
+        },
+        "title": {
+          "type": "text",
+          "label": "Event title",
+          "required": true
+        },
+        "start-date": {
+          "type": "text",
+          "label": "Start date as shown in Google Calendar",
+          "required": true
+        },
+        "end-date": {
+          "type": "text",
+          "label": "End date as shown in Google Calendar",
+          "required": true
+        },
+        "location": {
+          "type": "text",
+          "label": "Location (optional)",
+          "required": false
+        },
+        "dates": {
+          "type": "text",
+          "label": "Google address date range (compact start/end)"
+        }
+      }
+    },
+    {
+      "id": "save-event",
+      "label": "Approve and press Save",
+      "op": "recipe",
+      "effect": "write",
+      "tab": "calendar",
+      "recipeId": "save-all-day-event",
+      "description": "Review the calendar destination and the filled title, dates, times, location, and all-day setting in the open editor before approving.",
+      "inputs": {
+        "destination-account": "prepare-event.$fields.destination-account",
+        "title": "prepare-event.$fields.title",
+        "start-date": "prepare-event.$fields.start-date",
+        "end-date": "prepare-event.$fields.end-date",
+        "location": "prepare-event.$fields.location"
+      }
+    },
+    {
+      "id": "verify-event",
+      "label": "Verify the event on the displayed week",
+      "op": "recipe",
+      "effect": "read",
+      "tab": "calendar",
+      "recipeId": "verify-calendar-event",
+      "description": "Open the week containing the event, then enter the exact event accessibility label shown by the read-week recipe. If the event is missing, inspect Calendar before retrying Save.",
+      "inputs": {
+        "destination-account": "prepare-event.$fields.destination-account"
+      },
+      "fields": {
+        "event-label": {
+          "type": "text",
+          "label": "Exact event accessibility label"
+        }
+      }
+    }
+  ]
+}

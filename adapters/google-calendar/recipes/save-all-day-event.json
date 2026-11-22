@@ -1,0 +1,86 @@
+{
+  "id": "save-all-day-event",
+  "title": "Press Save on the reviewed new all-day event",
+  "inputs": {
+    "destination-account": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "start-date": {
+      "type": "string",
+      "required": true
+    },
+    "end-date": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "calendar-account",
+      "attribute": "aria-label",
+      "input": "destination-account"
+    },
+    {
+      "op": "assert",
+      "target": "event-all-day",
+      "at": {
+        "under": "/calendar/u/",
+        "path": "/r/eventedit"
+      }
+    },
+    {
+      "op": "assertValue",
+      "target": "event-title",
+      "input": "title",
+      "at": {
+        "under": "/calendar/u/",
+        "path": "/r/eventedit"
+      }
+    },
+    {
+      "op": "assertValue",
+      "target": "event-start-date",
+      "input": "start-date",
+      "at": {
+        "under": "/calendar/u/",
+        "path": "/r/eventedit"
+      }
+    },
+    {
+      "op": "assertValue",
+      "target": "event-end-date",
+      "input": "end-date",
+      "at": {
+        "under": "/calendar/u/",
+        "path": "/r/eventedit"
+      }
+    },
+    {
+      "op": "assertValue",
+      "target": "event-location",
+      "input": "location",
+      "at": {
+        "under": "/calendar/u/",
+        "path": "/r/eventedit"
+      }
+    },
+    {
+      "op": "click",
+      "target": "event-save",
+      "at": {
+        "under": "/calendar/u/",
+        "path": "/r/eventedit"
+      }
+    }
+  ]
+}

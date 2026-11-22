@@ -12,4 +12,6 @@ Start with the task someone will call. Identify the starting page, inputs, expec
 3. **Draft the recipe.** Write the ordered operations and name the outputs a caller will read. Use the runtime’s [recipe format](https://github.com/open-horizon-labs/browser-recipes/blob/main/docs/recipes.md) when choosing operations or input types. For forms, file uploads, and authenticated downloads, read [Writes and attachments](references/writes-and-attachments.md).
 4. **Verify the installed files.** Pack the catalog, validate it, and replay each new recipe with another tab in front. If you changed a shared target, rerun existing recipes that use it. Update the app README with the use case, starting state, inputs, outputs, side effects, and links to the recipes. Report which checks passed and what you could only verify from source.
 
+For tasks that use several recipes, follow [Workflow authoring](../../../docs/workflows.md) to declare the tabs, pass outputs between steps, and specify where the user reviews a write.
+
 Keep page captures, account data, and attachment contents out of the contribution. A synthetic example and the observed result shape are enough for review.

@@ -1,0 +1,67 @@
+{
+  "id": "apply-calendar-import",
+  "title": "Import approved calendar blocks",
+  "inputs": {
+    "calendar-file": {
+      "type": "attachment",
+      "required": true
+    },
+    "destination-account": {
+      "type": "string",
+      "required": true
+    },
+    "calendar-name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "steps": [
+    {
+      "op": "assert",
+      "target": "import-button"
+    },
+    {
+      "op": "assert",
+      "target": "calendar-account",
+      "attribute": "aria-label",
+      "input": "destination-account"
+    },
+    {
+      "op": "assert",
+      "target": "chosen-calendar",
+      "match": {
+        "input": "calendar-name"
+      }
+    },
+    {
+      "op": "attach",
+      "target": "import-file",
+      "input": "calendar-file"
+    },
+    {
+      "op": "assert",
+      "target": "calendar-account",
+      "attribute": "aria-label",
+      "input": "destination-account"
+    },
+    {
+      "op": "assert",
+      "target": "chosen-calendar",
+      "match": {
+        "input": "calendar-name"
+      }
+    },
+    {
+      "op": "click",
+      "target": "import-button"
+    },
+    {
+      "op": "readList",
+      "target": "import-receipt",
+      "as": "receipt",
+      "text": "event",
+      "waitMs": 6000,
+      "minRows": 1
+    }
+  ]
+}

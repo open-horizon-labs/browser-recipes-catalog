@@ -8,6 +8,26 @@
     "calendar-account": "header a[role=\"button\"][aria-label^=\"Google Account:\"]",
     "import-button": "button[jsname=\"N8B8lb\"]",
     "import-file": "input[type=\"file\"][name=\"filename\"]",
-    "calendar-controls": "input[type=\"checkbox\"][aria-label]"
+    "calendar-controls": "input[type=\"checkbox\"][aria-label]",
+    "import-receipt": "[role=\"alertdialog\"], [role=\"dialog\"], [role=\"alert\"], [role=\"status\"], [aria-live=\"polite\"]",
+    "import-picker": "[role=\"listbox\"]",
+    "calendar-option": "[role=\"option\"]",
+    "chosen-calendar": "[role=\"listbox\"] [role=\"option\"][aria-selected=\"true\"]",
+    "event-save": "#xSaveBu",
+    "event-title": "#xTiIn",
+    "event-start-date": "#xStDaIn",
+    "event-start-time": "#xStTiIn",
+    "event-end-date": "#xEnDaIn",
+    "event-end-time": "#xEnTiIn",
+    "event-location": "#xLocIn input, input[aria-label=\"Add location\"]",
+    "event-all-day": "#xAlDaCbx input[type=checkbox]:checked",
+    "event-timed": "#xAlDaCbx input[type=checkbox]:not(:checked)"
+  },
+  "paths": [
+    "/calendar/"
+  ],
+  "identity": {
+    "selector": "header a[role=\"button\"][aria-label^=\"Google Account:\"]",
+    "attribute": "aria-label"
   }
 }
