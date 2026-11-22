@@ -11,6 +11,10 @@ This adapter uses background-only runs and requires a runtime checkout that supp
 [first-expense-report-summary](recipes/first-expense-report-summary.json)
 still opens Manage Expenses to read the first active report card.
 
+## Check your active reports
+
+[List active reports](recipes/list-active-reports.json) opens Manage Expenses and returns every visible report card in `outputs.reports`. Each card includes the report name, amount, and any approval or reimbursement status Concur displays. An empty Active Reports view returns an empty list.
+
 ## Audit a report
 
 - [read-expense-report](recipes/read-expense-report.json) reads the title,

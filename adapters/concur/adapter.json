@@ -71,7 +71,8 @@
     "itemization-dialog": "[role=\"dialog\"]:has([aria-label=\"Itemization Summary\"])",
     "itemization-close": "[role=\"dialog\"]:has([aria-label=\"Itemization Summary\"]) button",
     "report-alerts": "[role=\"table\"][aria-label=\"A List of Expense Entries\"] button:is([aria-label^=\"Show Error\"],[aria-label^=\"Show Warning\"])",
-    "report-header-dismiss": "[role=\"dialog\"] .report-header-button-container button.sapcnqr-button--link"
+    "report-header-dismiss": "[role=\"dialog\"] .report-header-button-container button.sapcnqr-button--link",
+    "active-report-cards": "section.active-reports .report-tiles-container > li.report-tile:has(a.sapcnqr-grid-list-item__link)"
   },
   "backgroundOnly": true
 }

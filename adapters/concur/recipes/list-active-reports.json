@@ -1,0 +1,24 @@
+{
+  "id": "list-active-reports",
+  "title": "Check expense report and reimbursement status",
+  "kind": "list",
+  "effect": "read",
+  "entryPath": "/nui/expense",
+  "steps": [
+    {
+      "op": "navigate",
+      "path": "/nui/expense"
+    },
+    {
+      "op": "assert",
+      "target": "manage-expenses",
+      "text": "Manage Expenses"
+    },
+    {
+      "op": "readList",
+      "target": "active-report-cards",
+      "waitMs": 1500,
+      "as": "reports"
+    }
+  ]
+}
